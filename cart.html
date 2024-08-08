@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excentrique | Cart</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
+</head>
+<body>
+    
+    <div class="overlay" id="overlay"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
+            <div class="logo">
+                <a href="index.html" class="noto-serif-display">Excentrique</a>
+            </div>
+            <div class="personal">
+                <ul class="personal">
+                    <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidemenu">
+        <div class="close-menu"  id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="nav-links" id="nav-links">
+            <div class="cat-dropdown">
+                <div class="dropdown">
+                    <button class="dropbtn">MEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Shirts</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">WOMEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Tops</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+            </div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="heading">
+        <hr>
+        <h1 class="title">My Cart</h1>
+        <hr>
+    </div>
+
+    <div class="main-container">
+        <div class="left-container">
+            <div class="cart-container">
+                <div class="item">
+                    <div class="row">
+                        <div class="text">
+                            <span class="info"><p id="gender">Men's</p><p id="color">Black</p><p id="name">Classic Tee</p><p id="type">Oversized T-shirt</p></span>
+                            <p id="price" class="price">Rs. 899</p>
+                            <div class="option-container">
+                                <div class="drop-btn">Size:<p id="size">L</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                                <div class="drop-btn">Qty:<p id="qty">1</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                        <img src="/t-shirts/1st mockup.png">
+                    </div>
+                    <div class="btn-container">
+                        <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
+                        <div class="btn">Move to Wishlist</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="text">
+                            <span class="info"><p id="gender">Men's</p><p id="color">Black</p><p id="name">Classic Tee</p><p id="type">Oversized T-shirt</p></span>
+                            <p id="price" class="price">Rs. 899</p>
+                            <div class="option-container">
+                                <div class="drop-btn">Size:<p id="size">L</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                                <div class="drop-btn">Qty:<p id="qty">1</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                        <img src="/t-shirts/1st mockup.png">
+                    </div>
+                    <div class="btn-container">
+                        <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
+                        <div class="btn">Move to Wishlist</div>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <div class="row">
+                        <div class="text">
+                            <span class="info"><p id="gender">Men's</p><p id="color">Black</p><p id="name">Classic Tee</p><p id="type">Oversized T-shirt</p></span>
+                            <p id="price" class="price">Rs. 899</p>
+                            <div class="option-container">
+                                <div class="drop-btn">Size:<p id="size">L</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                                <div class="drop-btn">Qty:<p id="qty">1</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                            </div>
+                        </div>
+                        <img src="/t-shirts/1st mockup.png">
+                    </div>
+                    <div class="btn-container">
+                        <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
+                        <div class="btn">Move to Wishlist</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="recco-container"></div>
+        </div>
+        <div class="right-containenr">
+        </div>
+    </div>
+</body>
+<script src="cart.js"></script>
+<script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+</html>

@@ -1,0 +1,907 @@
+*{
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    background-color: #fff9ef;
+}
+
+.noto-serif-display {
+  font-family: "Noto Serif Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.navbar {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff9ef;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0;
+    padding: 0 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibilty 0.5s ease;
+}
+
+.overlay-active{
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+.logo a {
+    color: #fff9ef;
+    text-decoration: none;
+    font-size: 36px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 0;
+}
+
+.sidemenu{
+  position: absolute;
+  top: 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: -100%;
+    list-style: none;
+    background-color: #333;
+    height: 100vh;
+    width: 30vw;
+    padding: 0;
+    z-index: 4;
+    transition: left 0.5s ease;
+}
+
+.nav-links.active {
+    left: 0;
+}
+
+.cat-dropdown{
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  margin-top: 40px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.dropdown{
+  overflow: hidden;
+}
+
+.dropdown .dropbtn{
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: #333;
+  background-color: #fff9ef;
+  width: 140px;
+  padding: 10px;
+  border-radius: 2.5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff9ef;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover, .dropdown-content a:active {
+  background-color: #d4d4d4;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.links li{
+  padding: 10px;
+}
+
+.links a {
+  color: #fff9ef;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.hamburger{
+  display: block;
+}
+
+.hamburger, .close-menu {
+    line-height: 0%;
+    z-index: 5;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-menu{
+    display: block;
+    position: fixed;
+    left: -100%;
+    color: #fff9ef;
+    padding: 20px;
+    padding-left: 20px;
+    transition: left 0.5s ease;
+}
+
+.close-menu-active{
+    left: 0;
+}
+
+.personal{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 24px;
+}
+
+.personal i{
+    font-size: 24px;
+    color: #fff9ef; 
+    padding: 0 10px;
+}
+
+.page-navigation-list{
+  padding-top: 40px;
+  padding-left: 40px;
+  list-style: none;
+}
+
+.page-navigation-list li{
+  display: inline-block;
+}
+
+.page-navigation-list a{
+  text-decoration: none;
+  color: #333;
+  font-family: "Noto Sans Mono";
+  font-size: 14px;
+}
+
+.main-container{
+  display: grid;
+  height: 100%;
+  grid-template-columns: repeat(auto-fit,minmax(35vw,1fr));
+  gap: 20px;
+}
+
+.left-container{
+  padding-top: 10px;
+  padding-left: 20px;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+  gap: 10px;
+}
+
+.top-container-mobile{
+  display: none;
+}
+
+.left-container img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.full-screen-overlay {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.full-screen-overlay img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.full-screen-overlay.show {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+}
+
+.full-screen-overlay .prev, .full-screen-overlay .next {
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #fff9ef;
+  font-weight: bold;
+  font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 0 3px 3px 0;
+  transition: 0.6s ease;
+}
+
+.full-screen-overlay .next {
+  right: 25%;
+  left: auto;
+  border-radius: 3px 0 0 3px;
+}
+
+.right-container{
+  padding-top: 10px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-info-container{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.product-info-container h1{
+  font-size: 30px;
+  font-family: "Noto Serif Display",serif;
+}
+
+.product-info-container p{
+  font-size: 16px;
+  font-family: "Noto Sans Mono";
+}
+
+.product-name-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.product-price-container{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.size-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  width: 80%;
+  background-color: #fff9ef;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid #333;
+}
+
+.size-container p{
+  font-size: 18px;
+    font-family: "Noto Sans Mono";
+  font-weight: bold;
+}
+
+.size-list{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.size-list-btn{
+  border: 2px solid #333;
+  color: #333;
+  background-color: #fff9ef;
+  font-size: 14px;
+  font-family: "Noto Sans Mono";
+  padding: 10px;
+  width: 30px;
+  border-radius: 5px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.size-list-btn:hover, .size-list-btn:active{
+  color: #fff9ef;
+  background-color: #333;
+}
+
+.buy-btn-container{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.buy-btn-container i{
+  padding-right: 10px;
+}
+
+.cart-btn{
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+    font-family: "Noto Sans Mono";
+  border: 2px solid #333;
+  background-color: #333;
+  color: #fff9ef;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.cart-btn:hover, .cart-btn:active{
+  background-color: #fff9ef;
+  color: #333;
+}
+
+.wishlist-btn{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+    font-family: "Noto Sans Mono";
+  border: 2px solid #333;
+  background-color: #fff9ef;
+  color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.wishlist-btn:hover, .wishlist-btn:active{
+  background-color: #333;
+  color: #fff9ef;
+}
+
+.details-button{
+  font-size: 20px;
+  font-family: 'Noto Serif Display';
+  font-weight: bold;
+  background-color: #fff9ef;
+  padding: 10px;
+  margin-top: 50px;
+  width: 80%;
+  border-radius: 5px;
+  border: 2px solid #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.desp-button{
+  font-size: 20px;
+  font-family: 'Noto Serif Display';
+  font-weight: bold;
+  background-color: #fff9ef;
+  padding: 10px;
+  margin-top: 10px;
+  width: 80%;
+  border-radius: 5px;
+  border: 2px solid #333;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+
+.collapsible {
+  width: 80%;
+  position: relative;
+    font-family: "Noto Sans Mono";
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.collapsible.expanded {
+  opacity: 1;
+  max-height: 500px; /* Adjust this value according to your content height */
+}
+
+.collapsible ul {
+  margin: 10px;
+  margin-left: 0;
+  font-size: 16px;
+}
+
+.collapsible li{
+  padding: 5px;
+}
+
+.collapsible p{
+  text-align: justify;
+  margin: 10px;
+  font-size: 16px;
+}
+
+.details-button i,
+.desp-button i {
+    transition: transform 0.5s ease;
+}
+
+.details-button.expanded i,
+.desp-button.expanded i {
+    transform: rotate(180deg);
+}
+
+
+
+@media (max-width: 768px) {
+
+    .container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .personal{
+        height: 16px;
+    }
+
+    .personal i{
+        font-size: 20px;
+        padding: 0 7.5px;
+    }
+    
+    .navbar{
+      z-index: 3;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: #333;
+        color: #fff9ef;
+        padding: 20px 0;
+        height: 55%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.5s ease;
+    }
+
+    .nav-links.active{
+        top:60px;
+    }
+
+    .logo a{
+        font-size: 22px;
+        position: inherit;
+        line-height: 100%;
+        font-weight: bold;
+    }
+
+    .hamburger, .close-menu{
+        font-size: 20px;
+        line-height: 50%;
+    }
+
+    .hamburger{
+        height: 100%;
+        width: 16px;
+    }
+
+    .close-menu{
+      padding: 15px 20px;
+      z-index: 10;
+    }
+
+    .close-menu{
+        display: block;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        color: #fff9ef;
+        padding: 20px;
+        padding-left: 20px;
+        transition: top 0.5s ease;
+    }
+    
+    .close-menu-active{
+        top: 0;
+        left: 0;
+    }
+
+    .container{
+        padding: 0 20px;
+        z-index: 2;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .main-container{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .page-navigation-list{
+      display: none;
+    }
+
+    .left-container{
+      display: none;
+    }
+
+    .top-container-mobile{
+      display: flex;
+      width: 100%;
+      height: auto;
+    }
+    
+    .slideshow-container {
+      width: 100%;
+      height: 55vh;
+      position: relative;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .slideshow-container img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: #fff9ef;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+    
+    @keyframes fade {
+      from {opacity: .4} 
+      to {opacity: 1}
+    }
+
+    .full-screen-overlay .prev, .full-screen-overlay .next {
+      position: absolute;
+      left: 5%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 30px;
+      cursor: pointer;
+      user-select: none;
+      border-radius: 0 3px 3px 0;
+      transition: 0.6s ease;
+    }
+    
+    .full-screen-overlay .next {
+      right: 5%;
+      left: auto;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .right-container{
+      padding-top: 0;
+      padding-right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+    
+    .product-info-container{
+      display: flex;
+      width: 95%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .product-info-container h1{
+      font-size: 20px;
+      font-family: "Noto Serif Display",serif;
+    }
+    
+    .product-info-container p{
+      font-size: 14px;
+      font-family: "Arial",sans-serif;
+    }
+    
+    .product-name-container{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .product-price-container{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .size-container{
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      width: 80%;
+      background-color: #fff9ef;
+      border: 2px solid #333;
+      padding: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 5px;
+    }
+    
+    .size-container p{
+      font-size: 14px;
+        font-family: "Noto Sans Mono";
+      font-weight: bold;
+    }
+    
+    .size-list{
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      padding-top: 10px;
+    }
+    
+    .size-list-btn{
+      border: 2px solid #333;
+      color: #333;
+      background-color: #fff9ef;
+      font-size: 12px;
+        font-family: "Noto Sans Mono";
+      padding: 10px;
+      width: 20px;
+      border-radius: 5px;
+      text-align: center;
+      margin-left: 5px;
+      margin-right: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .size-list-btn:hover, .size-list-btn:active{
+      color: #fff9ef;
+      background-color: #333;
+    }
+    
+    .buy-btn-container{
+      display: flex;
+      position: fixed;
+      bottom: 0;
+      background-color: #fff9ef;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      flex-direction: row;
+      width: 100%;
+      margin-top: 30px;
+      justify-content: center;
+      z-index: 1;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    .buy-btn-container i{
+      padding-right: 10px;
+    }
+    
+    .cart-btn{
+      font-size: 16px;
+      text-align: center;
+      font-weight: bold;
+        font-family: "Noto Sans Mono";
+      border: 2px solid #333;
+      background-color: #333;
+      color: #fff9ef;
+      border-radius: 5px;
+      padding: 10px;
+      margin-right: 30px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .cart-btn:hover, .cart-btn:active{
+      background-color: #fff9ef;
+      color: #333;
+    }
+    
+    .wishlist-btn{
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+        font-family: "Noto Sans Mono";
+      border: 2px solid #333;
+      background-color: #fff9ef;
+      color: #333;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .wishlist-btn:hover, .wishlist-btn:active{
+      background-color: #333;
+      color: #fff9ef;
+    }
+    
+    .details-button{
+      font-size: 16px;
+      font-family: 'Noto Serif Display';
+      font-weight: bold;
+      background-color: #fff9ef;
+      padding: 10px;
+      margin-top: 40px;
+      width: 80%;
+      border-radius: 5px;
+      border: 2px solid #333;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .desp-button{
+      font-size: 16px;
+      font-family: 'Noto Serif Display';
+      font-weight: bold;
+      background-color: #fff9ef;
+      padding: 10px;
+      margin-top: 10px;
+      width: 80%;
+      border-radius: 5px;
+      border: 2px solid #333;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    
+    .collapsible {
+      width: 100%;
+      position: relative;
+        font-family: "Noto Sans Mono";
+      max-height: 0;
+      opacity: 0;
+      z-index: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .collapsible.expanded {
+      opacity: 1;
+      max-height: 500px; /* Adjust this value according to your content height */
+    }
+    
+    .collapsible ul {
+      margin: 10px;
+      font-size: 14px;
+    }
+    
+    .collapsible li{
+      padding: 5px;
+    }
+    
+    .collapsible p{
+      margin-top: 10px;
+      margin-left: 10%;
+      width: 80%;
+      text-align: justify;
+      font-size: 14px;
+    }
+
+}

@@ -1,0 +1,955 @@
+*{
+    margin: 0;
+}
+
+body{
+    margin: 0;
+    background-color: #fff9ef;
+}
+
+.noto-serif-display {
+  font-family: "Noto Serif Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.navbar {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff9ef;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0;
+    padding: 0 20px;
+    z-index: 1;
+    position: relative;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibilty 0.5s ease;
+}
+
+.overlay-active{
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+.logo a {
+    color: #fff9ef;
+    text-decoration: none;
+    font-size: 36px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    line-height: 0;
+}
+
+.sidemenu{
+  position: absolute;
+  top: 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    top: 0;
+    left: -100%;
+    list-style: none;
+    background-color: #333;
+    height: 100vh;
+    width: 30vw;
+    padding: 0;
+    z-index: 4;
+    transition: left 0.5s ease;
+}
+
+.nav-links.active {
+    left: 0;
+}
+
+.cat-dropdown{
+  display: flex;
+  width: 100%;
+  position: relative;
+  padding: 20px;
+  margin-top: 40px;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.dropdown{
+  overflow: hidden;
+}
+
+.dropdown .dropbtn{
+  font-size: 18px;
+  border: none;
+  outline: none;
+  color: #333;
+  background-color: #fff9ef;
+  width: 140px;
+  padding: 10px;
+  border-radius: 2.5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #fff9ef;
+  min-width: 140px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover, .dropdown-content a:active {
+  background-color: #d4d4d4;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.links li{
+  padding: 10px;
+}
+
+.links a {
+  color: #fff9ef;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.hamburger{
+  display: block;
+}
+
+.hamburger, .close-menu {
+    line-height: 0%;
+    z-index: 5;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close-menu{
+    display: block;
+    position: fixed;
+    left: -100%;
+    color: #fff9ef;
+    padding: 20px;
+    padding-left: 20px;
+    transition: left 0.5s ease;
+}
+
+.close-menu-active{
+    left: 0;
+}
+
+.personal{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 24px;
+}
+
+.personal i{
+    font-size: 24px;
+    color: #fff9ef; 
+    padding: 0 10px;
+}
+
+.heading{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.heading h1{
+    font-family: "Noto Serif Display";
+    font-weight: bold;
+    font-size: 40px;
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.heading hr{
+    border: 1px solid #333;
+    color: #333;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.left-container{
+    display: flex;
+    max-height: 1000vh;
+    border-right: 1px solid #333;
+
+}
+
+.page-navigation-list{
+    list-style: none;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 50%;
+}
+
+.page-navigation-list li{
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 50%;
+}
+
+.page-navigation-list i{
+    padding-right: 10px;
+}
+
+.nav-btns{
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    color: #333;
+    background-color: #fff9ef;
+    font-family: "Noto Sans mono";
+    font-size: 22px;
+    border: 2px solid #333;
+    padding: 12px;
+    width: 300px;
+    border-radius: 2.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-btns.active{
+    background-color: #333;
+    color: #fff9ef;
+}
+
+.nav-btns:hover, .nav-btns:active{
+    background-color: #333;
+    color: #fff9ef;
+}
+
+.page-navigation-list i{
+    padding-left: 8px;
+    padding-right: 16px;
+}
+
+
+.top-container-mobile{
+  display: none;
+}
+
+.right-container{
+    width: 100%;
+}
+
+.profile{
+    margin-left: 50px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile h1{
+    font-family: "Noto Serif Display";
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.profile form{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+}
+
+.profile form label{
+    font-family: "Noto Sans mono";
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.profile form input{
+    background-color: #fff9ef;
+    width: 500px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 2.5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.pwd-input-container{
+    width: 500px;
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.pwd-input-container input{
+    padding-right: 40px;
+}
+
+.pwd-toggle-icon{
+    position: absolute;
+    top: 25%;
+    right: 20px;
+    cursor: pointer;
+}
+
+.profile form button{
+    background-color: #333;
+    color: #fff9ef;
+    padding: 10px;
+    width: 160px;
+    border-radius: 2.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.profile form button:hover, .profile form button:active{
+    background-color: #fff9ef;
+    color: #333;
+}
+
+.orders{
+    margin-left: 50px;
+    margin-top: 50px;
+    display: none;
+    flex-direction: column;
+}
+
+.orders h1{
+    font-family: "Noto Serif Display";
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.order-container{
+    width: 90%;
+    height: 250px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.order-container img{
+    height: 100%;
+    object-fit: contain;
+}
+
+.order-info{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+}
+
+.order-info .name-price{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.order-info h3{
+    font-size: 24px;
+    font-family: "Noto Serif Display";
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+.order-info p{
+    font-size: 16px;
+    font-family: "Noto Sans mono";
+    margin-bottom: 10px;
+
+}
+
+.order-info span{
+    font-size: 16px;
+    font-family: "Noto Sans mono";
+    margin-bottom: 10px;
+}
+
+.order-info .status{
+    border: 1px solid #333;
+    width: 350px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2.5px;
+}
+
+.order-info .status i{
+    padding-right: 10px;
+}
+
+.wishlist{
+    margin-left: 50px;
+    margin-top: 50px;
+    display: none;
+    flex-direction: column;
+}
+
+.wishlist h1{
+    font-family: "Noto Serif Display";
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+
+.product-tiles-container{
+    display: grid;
+    width: 90%;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 20px;
+    transition: grid-template-columns 0.5s ease;
+    z-index: 0;
+  }
+
+.product-card {
+    display: block;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+    max-height: 475px;
+    border-radius: 2.5px;
+    transition: transform 0.5s ease;
+    font-family: "Noto Sans mono";
+    margin-bottom: 25px;
+  }
+
+.product-img {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+  }
+
+  .product-card video{
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+  }
+
+  .product-card h2{
+    position: absolute;
+    top: 80%;
+    left: 5%;
+    font-size: 20px;
+  }
+
+  .product-card p{
+    position: absolute;
+    padding-top: 5px;
+    top: 85%;
+    left: 5%;
+    font-size: 16px;
+  }
+
+  .addtowishlist-btn{
+    position: absolute;
+    right: 5%;
+    height: 16px;
+    width: 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .addtocart-btn{
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    text-decoration: none;
+    background-color: #333;
+    color: #fff9ef;
+    bottom: 0;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .addtowishlist-btn img{
+    height: 16px;
+    width: 16px;
+  }
+
+@media (max-width: 768px) {
+
+    .container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .personal{
+        height: 16px;
+    }
+
+    .personal i{
+        font-size: 20px;
+        padding: 0 7.5px;
+    }
+    
+    .navbar{
+      z-index: 3;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        background-color: #333;
+        color: #fff9ef;
+        padding: 20px 0;
+        height: 55%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        transition: top 0.5s ease;
+    }
+
+    .nav-links.active{
+        top:60px;
+    }
+
+    .logo a{
+        font-size: 22px;
+        position: inherit;
+        line-height: 100%;
+        font-weight: bold;
+    }
+
+    .hamburger, .close-menu{
+        font-size: 20px;
+        line-height: 50%;
+    }
+
+    .hamburger{
+        height: 100%;
+        width: 16px;
+    }
+
+    .close-menu{
+      padding: 15px 20px;
+      z-index: 10;
+    }
+
+    .close-menu{
+        display: block;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        color: #fff9ef;
+        padding: 20px;
+        padding-left: 20px;
+        transition: top 0.5s ease;
+    }
+    
+    .close-menu-active{
+        top: 0;
+        left: 0;
+    }
+
+    .container{
+        padding: 0 20px;
+        z-index: 2;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .heading{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    
+    .heading h1{
+        font-family: "Noto Serif Display";
+        font-weight: bold;
+        font-size: 26px;
+        padding-left: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .heading hr{
+        border: 1px solid #333;
+        color: #333;
+    }
+
+    .main-container{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .left-container{
+      display: flex;
+      width: 100%;
+      height: auto;
+      border-right: 0px;
+    }
+
+    /* .top-container-mobile{
+      display: flex;
+      width: 100%;
+      height: auto;
+      justify-content: center;
+    } */
+
+    .page-navigation-list{
+        list-style: none;
+        padding-top: 50px;
+        padding-left: 20px;
+        padding-right: 0px;
+        width: 350px;
+    }
+    
+    .page-navigation-list li{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        width: 100%;
+    }
+    
+    .page-navigation-list i{
+        padding-right: 10px;
+    }
+    
+    .nav-btns{
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        color: #333;
+        background-color: #fff9ef;
+        font-family: "Noto Sans mono";
+        font-size: 18px;
+        border: 2px solid #333;
+        padding: 10px;
+        width: 330px;
+        border-radius: 2.5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .nav-btns.active{
+        background-color: #333;
+        color: #fff9ef;
+    }
+    
+    .nav-btns:hover, .nav-btns:active{
+        background-color: #333;
+        color: #fff9ef;
+    }
+    
+    .page-navigation-list i{
+        padding-right: 10px;
+    }
+    
+    .right-container{
+        width: 100%;
+    }
+    
+    .profile{
+        margin-left: 20px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .profile h1{
+        font-family: "Noto Serif Display";
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .profile form{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 60px;
+    }
+    
+    .profile form label{
+        font-family: "Noto Sans mono";
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    
+    .profile form input{
+        background-color: #fff9ef;
+        width: 350px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 2.5px;
+        margin-bottom: 10px;
+    }
+    
+    .pwd-input-container{
+
+        display: flex;
+    }
+    
+    .pwd-toggle-icon{
+        position: relative;
+        right: 10%;
+        top: 0%;
+        bottom: 5px;
+        cursor: pointer;
+    }
+    
+    .profile form button{
+        background-color: #333;
+        color: #fff9ef;
+        padding: 10px;
+        width: 160px;
+        border-radius: 2.5px;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .profile form button:hover, .profile form button:active{
+        background-color: #fff9ef;
+        color: #333;
+    }
+    
+    .orders{
+        margin-left: 20px;
+        margin-top: 20px;
+        display: none;
+        flex-direction: column;
+    }
+    
+    .orders h1{
+        font-family: "Noto Serif Display";
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .order-container{
+        width: 350px;
+        height: 140px;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid #333;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    
+    .order-container img{
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .order-info{
+        height: 140px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+    }
+    
+    .order-info h3{
+        font-size: 20px;
+        font-family: "Noto Serif Display";
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .order-info p{
+        font-size: 16px;
+        font-family: "Noto Sans mono";
+        margin-bottom: 5px;
+    
+    }
+    
+    .order-info span{
+        font-size: 16px;
+        font-family: "Noto Sans mono";
+        margin-bottom: 10px;
+    }
+    
+    .order-info .status{
+        border: 1px solid #333;
+        font-size: 12px;
+        width: 90%;
+        padding: 5px;
+        text-align: center;
+        border-radius: 2.5px;
+    }
+    
+    .order-info .status i{
+        padding-right: 10px;
+    }
+
+    .wishlist{
+        margin-left: 00px;
+        margin-top: 20px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .wishlist h1{
+        font-family: "Noto Serif Display";
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    
+    .product-tiles-container{
+        width: 350px;
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(auto-fit,minmax(170px,1fr));
+        gap: 40px;
+        transition: grid-template-columns 0.5s ease;
+        z-index: 0;
+      }
+    
+    .product-card {
+        display: block;
+        position: relative;
+        align-items: center;
+        overflow: hidden;
+        max-height: 475px;
+        border-radius: 2.5px;
+        transition: transform 0.5s ease;
+        font-family: "Noto Sans mono";
+      }
+    
+    .product-img {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+      }
+    
+      .product-card video{
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 80%;
+        object-fit: cover;
+        transition: opacity 0.5s ease;
+      }
+    
+      .product-card h2{
+        position: absolute;
+        top: 80%;
+        left: 5%;
+        font-size: 16px;
+      }
+    
+      .product-card p{
+        position: absolute;
+        padding-top: 5px;
+        top: 85%;
+        left: 5%;
+        font-size: 14px;
+      }
+
+      .addtocart-btn{
+        position: absolute;
+        left: 0%;
+        text-decoration: none;
+        background-color: #333;
+        color: #fff9ef;
+        width: 100%;
+        bottom: 0;
+        text-align: center;
+        padding: 10px;
+      }
+    
+      .addtowishlist-btn{
+        position: absolute;
+        right: 5%;
+        height: 16px;
+        width: 16px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      .addtowishlist-btn img{
+        height: 16px;
+        width: 16px;
+      }
+}

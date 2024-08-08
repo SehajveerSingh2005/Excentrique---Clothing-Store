@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCENTRIQUE | SHOP</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
+</head>
+<body>
+    
+    <div class="overlay" id="overlay"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
+            <div class="logo">
+                <a href="index.html" class="noto-serif-display">Excentrique</a>
+            </div>
+            <div class="personal">
+                <ul class="personal">
+                    <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidemenu">
+        <div class="close-menu"  id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="nav-links" id="nav-links">
+            <div class="cat-dropdown">
+                <div class="dropdown">
+                    <button class="dropbtn">MEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Shirts</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">WOMEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Tops</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+            </div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <div class="filter-container" id="filter-container">
+            <span class="title">FILTERS</span>
+            <hr class="long-line-bold">
+            <form id="filterForm" class="filterForm" onsubmit="applyFilters(); return false;">
+                <label>Products:</label>
+                <div>
+                    <input type="checkbox" id="product-all" name="product" value="product-all">
+                    <label for="product-all" class="custom-checkbox"></label>
+                    <label for="product-all" class="custom-label">All</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="t-shirts" name="product" value="t-shirt">
+                    <label for="t-shirts" class="custom-checkbox"></label>
+                    <label for="t-shirts" class="custom-label">T-Shirts</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="shirts" name="product" value="shirt">
+                    <label for="shirts" class="custom-checkbox"></label>
+                    <label for="shirts" class="custom-label">Shirts</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="cargos" name="product" value="cargos">
+                    <label for="cargos" class="custom-checkbox"></label>
+                    <label for="cargos" class="custom-label">Cargo Pants</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="jeans" name="product" value="jeans">
+                    <label for="jeans" class="custom-checkbox"></label>
+                    <label for="jeans" class="custom-label">Jeans</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="hoodies" name="product" value="hoodies">
+                    <label for="hoodies" class="custom-checkbox"></label>
+                    <label for="hoodies" class="custom-label">Hoodies</label>
+                </div>
+                <label>Size:</label>
+                <div>
+                    <input type="checkbox" id="size-all" name="size" value="size-all">
+                    <label for="size-all" class="custom-checkbox"></label>
+                    <label for="size-all" class="custom-label">All</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="size-s" name="size" value="s">
+                    <label for="size-s" class="custom-checkbox"></label>
+                    <label for="size-s" class="custom-label">S</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="size-m" name="size" value="m">
+                    <label for="size-m" class="custom-checkbox"></label>
+                    <label for="size-m" class="custom-label">M</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="size-l" name="size" value="l">
+                    <label for="size-l" class="custom-checkbox"></label>
+                    <label for="size-l" class="custom-label">L</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="size-xl" name="size" value="xl">
+                    <label for="size-xl" class="custom-checkbox"></label>
+                    <label for="size-xl" class="custom-label">XL</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="size-xxl" name="size" value="xxl">
+                    <label for="size-xxl" class="custom-checkbox"></label>
+                    <label for="size-xxl" class="custom-label">XXL</label>
+                </div>
+        
+                <label>Color:</label>
+                <div>
+                    <input type="checkbox" id="color-all" name="color" value="color-all">
+                    <label for="color-all" class="custom-checkbox"></label>
+                    <label for="color-all" class="custom-label">All</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-red" name="color" value="red">
+                    <label for="color-red" class="custom-checkbox"></label>
+                    <label for="color-red" class="custom-label">Red</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-blue" name="color" value="blue">
+                    <label for="color-blue" class="custom-checkbox"></label>
+                    <label for="color-blue" class="custom-label">Blue</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-green" name="color" value="green">
+                    <label for="color-green" class="custom-checkbox"></label>
+                    <label for="color-green" class="custom-label">Green</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-purple" name="color" value="purple">
+                    <label for="color-purple" class="custom-checkbox"></label>
+                    <label for="color-purple" class="custom-label">Purple</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-black" name="color" value="black">
+                    <label for="color-black" class="custom-checkbox"></label>
+                    <label for="color-black" class="custom-label">Black</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-white" name="color" value="white">
+                    <label for="color-white" class="custom-checkbox"></label>
+                    <label for="color-white" class="custom-label">White</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="color-beige" name="color" value="beige">
+                    <label for="color-beige" class="custom-checkbox"></label>
+                    <label for="color-beige" class="custom-label">Beige</label>
+                </div>
+
+                <button type="submit" class="submit-filter-btn">Apply Filters</button>
+            </form>
+        </div>
+        
+        <div class="right-container" id="right-container">
+            <span class="shop-title">MEN</span>
+            <hr class="line">
+            <div class="bar">
+                <div class="filter-button" id="filter-button" onclick="toggleFilter()">Filters</div>
+                <div class="sort-dropdown">
+                    <button class="sort-btn">Sort by <i class="fa fa-chevron-down" style="font-size: 16px;"></i></button>
+                      <div class="dropdown-content">
+                        <a href="#">Latest to Oldest</a>
+                        <a href="#">Price: Low to High</a>
+                        <a href="#">Price: High to Low</a>
+                      </div>
+                </div>
+            </div>
+            <hr class="long-line">
+
+                <div class="product-tiles-container">
+                    <div class="product-card" id="collection-card-1">
+                            <video class="rotate-video" muted>
+                                <source src="/t-shirts/Classic Tee/video.mp4" type="video/mp4">
+                            </video>
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><a href="product-page.html"><img  class="product-img" src="/t-shirts/Design0001.png"></a>
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><img  class="product-img" src="/t-shirts/Design0001.png">
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><img  class="product-img" src="/t-shirts/Design0001.png">
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><img  class="product-img" src="/t-shirts/Design0001.png">
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><img  class="product-img" src="/t-shirts/Design0001.png">
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><img  class="product-img" src="/t-shirts/Design0001.png">
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                    <div class="product-card" id="collection-card-1"><img class="product-img" src="/t-shirts/Design0001.png">
+                        <h2>Classic Tee</h2>
+                        <p>Rs. 899</p>
+                        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</body>
+<script src="shop.js"></script>
+<script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+</html>

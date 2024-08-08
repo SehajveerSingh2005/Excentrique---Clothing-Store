@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCENTRIQUE | SHOP</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="product-page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
+</head>
+<body>
+    
+    <div class="overlay" id="overlay"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
+            <div class="logo">
+                <a href="index.html" class="noto-serif-display">Excentrique</a>
+            </div>
+            <div class="personal">
+                <ul class="personal">
+                    <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidemenu">
+        <div class="close-menu"  id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="nav-links" id="nav-links">
+            <div class="cat-dropdown">
+                <div class="dropdown">
+                    <button class="dropbtn">MEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Shirts</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">WOMEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Tops</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+            </div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <ul class="page-navigation-list">
+        <li><a href="index.html">Home</a></li> /
+        <li><a href="shop.html">Men</a></li> /
+        <li><a href="product-page.html">Classic Tee</a></li>
+    </ul>
+
+    <div class="main-container">
+        <div class="left-container">
+            <!-- <div class="product-image-container"> -->
+                <img src="/t-shirts/Classic Tee/1.png" alt="Product Image 1" onclick="openFullScreen(0)">
+                <img src="/t-shirts/Classic Tee/2.png" alt="Product Image 2" onclick="openFullScreen(1)">
+                <img src="/t-shirts/Classic Tee/3.png" alt="Product Image 3" onclick="openFullScreen(2)">
+                <img src="/t-shirts/Classic Tee/4.png" alt="Product Image 4" onclick="openFullScreen(3)">
+            <!-- </div> -->
+        </div>
+        <div class="top-container-mobile">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                  <div class="numbertext">1 / 4</div>
+                  <img src="/t-shirts/Classic Tee/1.png" alt="Slide 1" style="width:100%" onclick="openFullScreen(0)">
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext">2 / 4</div>
+                  <img src="/t-shirts/Classic Tee/2.png" alt="Slide 2" style="width:100%" onclick="openFullScreen(1)">
+                </div>
+                
+                <div class="mySlides fade">
+                  <div class="numbertext">3 / 4</div>
+                  <img src="/t-shirts/Classic Tee/3.png" alt="Slide 3" style="width:100%" onclick="openFullScreen(2)">
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">4 / 4</div>
+                    <img src="/t-shirts/Classic Tee/4.png" alt="Slide 4" style="width:100%" onclick="openFullScreen(3)">
+                  </div>
+                
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+        </div>
+
+        <div id="fullScreenOverlay" class="full-screen-overlay" onclick="closeFullScreen()">
+            <a class="prev" onclick="navigateFullScreen(-1)">❮</a>
+            <img id="fullScreenImage" src="" alt="Full Screen Image">
+            <a class="next" onclick="navigateFullScreen(1)">❯</a>
+        </div>
+
+        <div class="right-container">
+            <div class="product-info-container">
+                <div class="product-name-container">
+                    <h1>Classic Tee</h1>
+                    <p>Oversized T-shirt</p>
+                </div>
+                <div class="product-price-container">
+                    <h1>Rs. 899</h1>
+                    <p>MRP (tax included)</p>
+                </div>
+            </div>
+            <div class="size-container">
+                <p>Choose a size:</p>
+                <div class="size-list">
+                    <div class="size-list-btn">S</div>
+                    <div class="size-list-btn">M</div>
+                    <div class="size-list-btn">L</div>
+                    <div class="size-list-btn">XL</div>
+                    <div class="size-list-btn">XXL</div>
+                </div>
+            </div>
+            <div class="buy-btn-container">
+                <div class="cart-btn"><i class="fa-solid fa-cart-shopping"></i>Add to Cart</div>
+                <div class="wishlist-btn"><i class="fa-solid fa-heart"></i>Add to Wishlist</div>
+            </div>
+            <div class="details-button" id="details-button">Product Details<i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+            <div class="collapsible" id="details-collapsible">
+                <ul>
+                    <li>Oversized Fit</li>
+                    <li>100% Cotton, 220 GSM</li>
+                    <li>Round Neck</li>
+                    <li>Half Sleeves</li>
+                    <li>Made in India</li>
+                    <li>Machine Wash</li>
+                </ul>
+            </div>
+            <div class="desp-button" id="desp-button">Product Description<i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+            <div class="collapsible" id="desp-collapsible">
+                <p>Introducing our Classic Tee, a perfect blend of comfort and style that stands out in any wardrobe. 
+                    This black oversized tee features a bold statement with "Excentrique" elegantly written across the chest, adding a touch of avant-garde flair to your outfit. 
+                    Crafted from high-quality, breathable cotton, it ensures a relaxed fit that drapes effortlessly over any silhouette. 
+                    The oversized design makes it a versatile piece, ideal for layering or wearing on its own. 
+                    Whether you're dressing up for a night out or keeping it casual, the Classic Tee is your go-to choice for making a fashionable statement with minimal effort. 
+                    Embrace your unique style with the Classic Tee – because being different is always in vogue.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="product-page.js"></script>
+<script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+</html>
