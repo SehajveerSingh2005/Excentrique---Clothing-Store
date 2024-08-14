@@ -43,35 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-let slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
-  }
-  slides[slideIndex-1].style.display = "block";  
-}
-
-
-const images = [
-  '/t-shirts/Classic Tee/1.png',
-  '/t-shirts/Classic Tee/2.png',
-  '/t-shirts/Classic Tee/3.png',
-  '/t-shirts/Classic Tee/4.png'
-];
 
 let currentIndex = 0;
 

@@ -240,6 +240,7 @@ body{
 .left-container{
     display: flex;
     max-height: 1000vh;
+    min-height: 80vh;
     border-right: 1px solid #333;
 
 }
@@ -378,7 +379,28 @@ body{
     flex-direction: column;
 }
 
-.orders h1{
+.no-orders-container{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: -50px;
+
+}
+
+.no-orders-container img{
+    width: 120px;
+}
+
+.no-orders-container h1{
+    font-family: "Noto Serif Display";
+    font-size: 32px;
+    margin-left: 10px;
+}
+
+.order-title{
     font-family: "Noto Serif Display";
     font-size: 30px;
     margin-bottom: 20px;

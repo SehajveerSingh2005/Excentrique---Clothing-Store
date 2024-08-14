@@ -22,7 +22,7 @@
         <div class="container">
             <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
             <div class="logo">
-                <a href="index.html" class="noto-serif-display">Excentrique</a>
+                <a href="index.html" class="noto-serif-display">Excentrique.</a>
             </div>
             <div class="personal">
                 <ul class="personal">
@@ -73,16 +73,16 @@
     <ul class="page-navigation-list">
         <li><a href="index.html">Home</a></li> /
         <li><a href="shop.html">Men</a></li> /
-        <li><a href="product-page.html">Classic Tee</a></li>
+        <li><a href="product-page.html" id="product-name-1"></a></li>
     </ul>
 
     <div class="main-container">
         <div class="left-container">
             <!-- <div class="product-image-container"> -->
-                <img src="/t-shirts/Classic Tee/1.png" alt="Product Image 1" onclick="openFullScreen(0)">
-                <img src="/t-shirts/Classic Tee/2.png" alt="Product Image 2" onclick="openFullScreen(1)">
-                <img src="/t-shirts/Classic Tee/3.png" alt="Product Image 3" onclick="openFullScreen(2)">
-                <img src="/t-shirts/Classic Tee/4.png" alt="Product Image 4" onclick="openFullScreen(3)">
+                <img src="" class="productImages" id="product-image-1">
+                <img src="" class="productImages" id="product-image-2">
+                <img src="" class="productImages" id="product-image-3">
+                <img src="" class="productImages" id="product-image-4">
             <!-- </div> -->
         </div>
         <div class="top-container-mobile">
@@ -90,22 +90,22 @@
 
                 <div class="mySlides fade">
                   <div class="numbertext">1 / 4</div>
-                  <img src="/t-shirts/Classic Tee/1.png" alt="Slide 1" style="width:100%" onclick="openFullScreen(0)">
+                  <img src="" id="product-image-1-full" alt="Slide 1" style="width:100%">
                 </div>
                 
                 <div class="mySlides fade">
                   <div class="numbertext">2 / 4</div>
-                  <img src="/t-shirts/Classic Tee/2.png" alt="Slide 2" style="width:100%" onclick="openFullScreen(1)">
+                  <img src="" id="product-image-2-full" alt="Slide 2" style="width:100%">
                 </div>
                 
                 <div class="mySlides fade">
                   <div class="numbertext">3 / 4</div>
-                  <img src="/t-shirts/Classic Tee/3.png" alt="Slide 3" style="width:100%" onclick="openFullScreen(2)">
+                  <img src="" id="product-image-3-full" alt="Slide 3" style="width:100%">
                 </div>
 
                 <div class="mySlides fade">
                     <div class="numbertext">4 / 4</div>
-                    <img src="/t-shirts/Classic Tee/4.png" alt="Slide 4" style="width:100%" onclick="openFullScreen(3)">
+                    <img src="" id="product-image-4-full" alt="Slide 4" style="width:100%">
                   </div>
                 
                 <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -113,20 +113,20 @@
             </div>
         </div>
 
-        <div id="fullScreenOverlay" class="full-screen-overlay" onclick="closeFullScreen()">
-            <a class="prev" onclick="navigateFullScreen(-1)">❮</a>
+        <div id="fullScreenOverlay" class="full-screen-overlay">
+            <a class="prev" id="prevBtn">❮</a>
             <img id="fullScreenImage" src="" alt="Full Screen Image">
-            <a class="next" onclick="navigateFullScreen(1)">❯</a>
+            <a class="next" id="nextBtn">❯</a>
         </div>
 
         <div class="right-container">
             <div class="product-info-container">
                 <div class="product-name-container">
-                    <h1>Classic Tee</h1>
-                    <p>Oversized T-shirt</p>
+                    <h1 id="product-name-2"></h1>
+                    <p id="category"></p>
                 </div>
                 <div class="product-price-container">
-                    <h1>Rs. 899</h1>
+                    <h1 id="product-price"></h1>
                     <p>MRP (tax included)</p>
                 </div>
             </div>
@@ -157,18 +157,14 @@
             </div>
             <div class="desp-button" id="desp-button">Product Description<i class="fa fa-chevron-down" aria-hidden="true"></i></div>
             <div class="collapsible" id="desp-collapsible">
-                <p>Introducing our Classic Tee, a perfect blend of comfort and style that stands out in any wardrobe. 
-                    This black oversized tee features a bold statement with "Excentrique" elegantly written across the chest, adding a touch of avant-garde flair to your outfit. 
-                    Crafted from high-quality, breathable cotton, it ensures a relaxed fit that drapes effortlessly over any silhouette. 
-                    The oversized design makes it a versatile piece, ideal for layering or wearing on its own. 
-                    Whether you're dressing up for a night out or keeping it casual, the Classic Tee is your go-to choice for making a fashionable statement with minimal effort. 
-                    Embrace your unique style with the Classic Tee – because being different is always in vogue.
+                <p>
                 </p>
             </div>
         </div>
     </div>
 
 </body>
+<script type="module" src="products-firebase.js"></script>
 <script src="product-page.js"></script>
 <script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
 </html>

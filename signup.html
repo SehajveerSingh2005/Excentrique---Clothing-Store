@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXCENTRIQUE | SIGNUP</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
+</head>
+<body>
+    
+    <div class="overlay" id="overlay"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
+            <div class="logo">
+                <a href="index.html"><img src="logo-cropped.png"></a>
+                <!-- <a href="index.html" class="noto-serif-display">Excentrique</a> -->
+            </div>
+            <div class="personal">
+                <ul class="personal">
+                    <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidemenu">
+        <div class="close-menu"  id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="nav-links" id="nav-links">
+            <div class="cat-dropdown">
+                <div class="dropdown">
+                    <button class="dropbtn">MEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Shirts</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">WOMEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Tops</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+            </div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>>
+        </div>
+    </div>
+
+    <div class="title">
+        <span class="heading">REGISTER</span>
+        <hr class="line">
+    </div>
+
+    <div class="main-container">
+
+        <div class="form-container" id="signup-form">
+            <form>
+                <label for="firstname">First Name:</label>
+                <input type="text"  name="firstname" id="firstname" required>
+
+                <label for="lastname">Last Name:</label>
+                <input type="text"  name="lastname" id="lastname" required>
+
+                <label for="email">Email Address:</label>
+                <input type="email"  name="email" id="email" required>
+
+                <label for="pwd">Password:</label>
+                <div class="pwd-input-container">
+                <input type="password"  name="pwd" id="pwd" required>
+                <span class="pwd-toggle-icon"><i class="fa fa-eye" aria-hidden="true" id="showpwdbtn"></i></span>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="t&c" name="t&c" value="t&c" required>
+                    <label for="t&c" class="custom-checkbox"></label>
+                    <label for="t&c" class="custom-label">I accept the <a href="#">terms and conditions</a>.</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="privacy" name="privacy" value="privacy" required>
+                    <label for="privacy" class="custom-checkbox"></label>
+                    <label for="privacy" class="custom-label">I accept the <a href="#">privacy statement</a>.</label>
+                </div>
+
+                <button type="button" id="submit-btn">Submit.</button>
+            </form>
+        </div>
+
+        <div class="right-container">
+            <h1>Already have an account?</h1>
+            <a href="login.html">Login Now.</a>
+        </div>
+
+</body>
+<script type="module" src="signup.js"></script>
+<script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+</html>

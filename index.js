@@ -1,3 +1,4 @@
+
 const hamburger = document.getElementById('hamburger');
 const closeMenu = document.getElementById('close-menu');
 const navLinks = document.getElementById('nav-links');
@@ -32,6 +33,15 @@ function clickdots(n){
   clearInterval(slideinterval);
   showSlidesDesktop(slideIndexDesktop = n);
 }
+
+
+const dots = document.querySelectorAll('.dot');
+
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => clickdots(index));
+});
+
+
 
 function showSlidesDesktop() {
   let i;
@@ -69,3 +79,4 @@ function showSlidesMobile() {
 
 showSlidesDesktop();
 showSlidesMobile();
+

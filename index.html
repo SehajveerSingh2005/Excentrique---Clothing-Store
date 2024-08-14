@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/avenir-lt-pro" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
 </head>
 <body>
@@ -28,9 +27,10 @@
             <div class="personal">
                 <ul class="personal">
                     <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
-                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
-                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
-                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                    <li class="signedin-icons"><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li class="signedin-icons"><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li class="signedin-icons"><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                    <li class="loginbtn" id="loginbtn"><a href="login.html">Login.</a></li>
                 </ul>
             </div>
         </div>
@@ -89,9 +89,9 @@
         </div>
         
         <div class="dot-container" style="text-align:center">
-            <span class="dot" onclick="clickdots(0)"></span> 
-            <span class="dot" onclick="clickdots(1)"></span> 
-            <span class="dot" onclick="clickdots(2)"></span> 
+            <span class="dot" ></span> 
+            <span class="dot" ></span> 
+            <span class="dot" ></span> 
         </div>
 
     </div>
@@ -131,6 +131,7 @@
         </div>
     </div>
 </body>
-<script src="index.js"></script>
+<script type="module" src="index-firebase.js"></script>
+<script  src="index.js"></script>
 <script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
 </html>

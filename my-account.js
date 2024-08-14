@@ -24,14 +24,14 @@ overlay.addEventListener('click', () => {
     closeMenu.classList.remove('close-menu-active');
 });
 
-function showpwd(){
-    const pwdele = document.getElementById('pwd');
-    if (pwdele.type === 'password'){
-        pwdele.type = 'text';
-    } else{
-        pwdele.type = 'password';
-    }
-}
+// function showpwd(){
+//     const pwdele = document.getElementById('pwd');
+//     if (pwdele.type === 'password'){
+//         pwdele.type = 'text';
+//     } else{
+//         pwdele.type = 'password';
+//     }
+// }
 
 document.addEventListener("DOMContentLoaded", function() {
     // Show profile div by default
