@@ -42,32 +42,3 @@ document.addEventListener('DOMContentLoaded', function() {
         despbutton.classList.toggle('expanded');
     });
 });
-
-
-let currentIndex = 0;
-
-function openFullScreen(index) {
-  if (index >= 0 && index < images.length) {
-      currentIndex = index;
-      const fullScreenOverlay = document.getElementById('fullScreenOverlay');
-      const fullScreenImage = document.getElementById('fullScreenImage');
-      fullScreenImage.src = images[currentIndex];
-      fullScreenOverlay.classList.add('show');
-  } else {
-      console.error('Index out of bounds:', index);
-  }
-}
-
-function closeFullScreen() {
-  const fullScreenOverlay = document.getElementById('fullScreenOverlay');
-  fullScreenOverlay.classList.remove('show');
-}
-
-function navigateFullScreen(direction) {
-  event.stopPropagation();
-  currentIndex = (currentIndex + direction + images.length) % images.length;
-  const fullScreenImage = document.getElementById('fullScreenImage');
-  fullScreenImage.src = images[currentIndex];
-}
-
-document.getElementById('fullScreenOverlay').addEventListener('click', closeFullScreen);
