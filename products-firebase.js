@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js"; 
+import { getFirestore, doc, getDoc,setDoc,Timestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js"; 
 const firebaseConfig = {
     apiKey: "AIzaSyDJL4cahnMBpAIKfZsBmlme6dwurkOVYq8",
     authDomain: "excentrique-clothing-store.firebaseapp.com",
@@ -33,7 +33,8 @@ else{
 
 document.addEventListener('DOMContentLoaded', () => {
     RetrieveData();
-    addEventListenersToImages()
+    addEventListenersToImages();
+    setupSlideshow();
 });
 
 let images = [];
@@ -67,9 +68,20 @@ async function RetrieveData(){
         document.getElementById('product-image-2-full').src = productData.images[1];
         document.getElementById('product-image-3-full').src = productData.images[2];
         document.getElementById('product-image-4-full').src = productData.images[3];
+
+        const sizelist = productData.sizes;
+        const sizecontainer = document.getElementById('size-list');
+        sizelist.forEach((size)=>{
+            const sizeElement = document.createElement('div');
+            sizeElement.textContent = size;
+            sizeElement.classList.add('size-list-btn');
+
+            sizecontainer.appendChild(sizeElement);
+        });
     }
 }
 
+//fullscreen image view functions
 
 function openFullScreen(index) {
   if (index >= 0 && index < images.length) {
@@ -109,3 +121,137 @@ function addEventListenersToImages() {
 }
 
 document.getElementById('fullScreenOverlay').addEventListener('click', closeFullScreen);
+
+//functions for mobile slideshow
+
+function setupSlideshow() {
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+        const slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (let i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+
+    document.getElementById('prev-mob').addEventListener('click', () => plusSlides(-1));
+    document.getElementById('next-mob').addEventListener('click', () => plusSlides(1));
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleGesture() {
+        if (touchEndX < touchStartX) plusSlides(1);
+        if (touchEndX > touchStartX) plusSlides(-1);
+    }
+
+    const slideshowContainer = document.querySelector('.slideshow-container');
+    slideshowContainer.addEventListener('touchstart', function (event) {
+        touchStartX = event.changedTouches[0].screenX;
+    });
+
+    slideshowContainer.addEventListener('touchend', function (event) {
+        touchEndX = event.changedTouches[0].screenX;
+        handleGesture();
+    });
+}
+
+
+
+//add to cart and wishlist functions
+
+let selectedSize = '';
+
+document.getElementById('size-list').addEventListener('click', (event) => {
+    if (event.target.classList.contains('size-list-btn')) {
+        selectedSize = event.target.textContent;
+
+        document.querySelectorAll('.size-list-btn').forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        event.target.classList.add('selected');
+    }
+});
+
+// Event listeners for add to cart and wishlist buttons
+document.getElementById('addtocart').addEventListener('click', () => addToCart(productId, selectedSize));
+document.getElementById('addtowishlist').addEventListener('click', () => addToWishlist(productId));
+
+// Add to cart function
+async function addToCart(productId, selectedSize) {
+    const user = auth.currentUser;
+    const quantity = parseInt(document.getElementById('quantity-dropdown').value, 10);
+
+    if (selectedSize) {
+        if (user) {
+            // User is signed in, save to Firestore
+            const cartRef = doc(db, "users", user.uid, "cart", `${productId}_${selectedSize}`);
+            const docSnap = await getDoc(cartRef);
+
+            if (docSnap.exists()) {
+                // Item with this size already exists, update quantity
+                const existingData = docSnap.data();
+                const existingQuantity = existingData.quantity || 0;
+                await setDoc(cartRef, {
+                    productId: productId,
+                    size: selectedSize,
+                    quantity: existingQuantity + quantity,
+                    createdAt: new Date().toISOString(),
+                }, { merge: true });
+            } else {
+                // New item, add to Firestore
+                await setDoc(cartRef, {
+                    productId: productId,
+                    size: selectedSize,
+                    quantity: quantity,
+                    createdAt: new Date().toISOString(),
+                });
+            }
+        } else {
+            // User is not signed in, save to local storage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            const existingItemIndex = cart.findIndex(item => item.productId === productId && item.size === selectedSize);
+
+            if (existingItemIndex > -1) {
+                // Item with this size already exists, update quantity
+                cart[existingItemIndex].quantity += quantity;
+            } else {
+                // New item, add to cart
+                cart.push({ productId, size: selectedSize, quantity });
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+        alert('Added to Cart!');
+    } else {
+        alert('Please select a size');
+    }
+}
+
+
+// Add to wishlist function
+async function addToWishlist(productId) {
+    const user = auth.currentUser;
+
+    if (user) {
+        // User is signed in, save to Firestore
+        const wishlistRef = doc(db, "users", user.uid, "wishlist", productId);
+        await setDoc(wishlistRef, {
+            productId: productId,
+            createdAt: Timestamp.now(),
+        }, { merge: true });
+    } else {
+        // User is not signed in, save to local storage
+        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+        wishlist.push({ productId });
+        localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    }
+    alert('Added to Wishlist!');
+}

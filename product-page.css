@@ -377,7 +377,44 @@ body{
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+
 .size-list-btn:hover, .size-list-btn:active{
+  color: #fff9ef;
+  background-color: #333;
+}
+
+.quantity-container{
+  margin-top: 20px;
+  width: 80%;
+}
+
+label[for="quantity-dropdown"] {
+  font-size: 20px;
+  font-weight: bold;
+  margin-right: 8px;
+  font-family: "Noto Sans mono";
+}
+
+/* Style the dropdown */
+.quantity-dropdown {
+  font-size: 16px;
+  font-family: "Noto Sans mono";
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff9ef;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #333;
+  transition: border-color 0.3s;
+}
+
+.quantity-dropdown:focus {
+  border-color: #333;
+  outline: none;
+}
+
+
+.selected{
   color: #fff9ef;
   background-color: #333;
 }
