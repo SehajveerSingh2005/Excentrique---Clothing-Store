@@ -27,7 +27,6 @@ if (user) {
     // loginbtn.style.display = 'none';
 }
 else{
-    window.location.href = 'index.html';
   }
 });
 
