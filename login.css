@@ -374,3 +374,253 @@
   background-color: #333;
 }
 
+@media (max-width: 768px) {
+    
+  .container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.personal{
+    height: 16px;
+}
+
+.personal i{
+    font-size: 20px;
+    padding: 0 7.5px;
+}
+
+.navbar{
+  z-index: 3;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    background-color: #333;
+    color: #fff9ef;
+    padding: 20px 0;
+    height: 55%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    transition: top 0.5s ease;
+}
+
+.nav-links.active{
+    top:60px;
+}
+
+.logo img{
+  
+  height: 40px;
+  transform: translateX(-50%);
+  transform: translateY(10%);
+  position: inherit;
+  line-height: 100%;
+}
+
+.hamburger, .close-menu{
+    font-size: 20px;
+    line-height: 50%;
+}
+
+.hamburger{
+    width: 16px;
+}
+
+.close-menu{
+  padding: 15px 20px;
+  z-index: 10;
+}
+
+.close-menu{
+    display: block;
+    position: fixed;
+    top: -100%;
+    left: 0;
+    color: #fff9ef;
+    padding: 20px;
+    padding-left: 20px;
+    transition: top 0.5s ease;
+}
+
+.close-menu-active{
+    top: 0;
+    left: 0;
+}
+
+.container{
+    padding: 0 20px;
+    z-index: 2;
+}
+
+.nav-links li {
+    margin: 10px 0;
+}
+
+    .hamburger {
+        display: block;
+    }
+
+    .title{
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 80%;
+      margin-top: 20px;
+    }
+    
+    
+    .heading{
+        color: #333;
+        font-size: 28px;
+        font-weight: 700;
+        font-family: "Noto Serif Display";
+        margin-left: 20px;
+    }
+    
+    .line{
+        width: 140px;
+        color: #333;
+        border: 1px solid #333;
+        border-radius: 0.75px;
+        margin-bottom: 30px;
+        margin-left: 20px;
+    }
+    
+    .main-container{
+      width: 100%;
+      height: 100%;
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-container{
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+    }
+    
+    .form-container h1{
+      font-family: "Noto Serif Display";
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .form-container form{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 60px;
+    }
+    
+    .form-container form label{
+      font-family: "Noto Sans mono";
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+    
+    .form-container form input{
+      background-color: #fff9ef;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 2.5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+    }
+    
+    .pwd-input-container{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      position: relative;
+      align-items: center;
+    }
+    
+    .pwd-input-container input{
+      padding-right: 40px;
+    }
+    
+    .pwd-toggle-icon{
+      position: absolute;
+      top: 25%;
+      right: 20px;
+      cursor: pointer;
+    }
+    
+    .forgotp{
+      font-family: "Noto Sans mono";
+      font-size: 18px;
+      margin-top: 0px;
+      margin-bottom: 20px;
+      text-decoration: underline;
+      cursor: pointer;
+      display: inline-block;
+      width: fit-content;
+      
+    }
+    
+    .form-container form button{
+      background-color: #333;
+      color: #fff9ef;
+      padding: 10px;
+      width: 160px;
+      border-radius: 2.5px;
+      cursor: pointer;
+      font-size: 20px;
+      font-family: "Noto Serif Display";
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .form-container form button:hover, .form-container form button:active{
+      background-color: #fff9ef;
+      color: #333;
+    }
+    
+    .right-container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      position: inherit;
+      margin-top: 40px;
+    }
+    
+    .right-container h1{
+      font-family: "Noto Serif Display";
+      font-size: 28px;
+      margin-top: -20%;
+      margin-bottom: 25px;
+    }
+    
+    .right-container a{
+      text-decoration: none;
+      font-size: 20px;
+      font-family: "Noto Serif Display";
+      font-weight: bold;
+      color: #333;
+      background-color: #fff9ef;
+      border: 1px solid #333;
+      padding: 10px;
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 2.5px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+    
+    .right-container a:hover{
+      color: #fff9ef;
+      background-color: #333;
+    }
+  }
