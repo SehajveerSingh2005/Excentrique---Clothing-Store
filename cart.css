@@ -634,22 +634,23 @@ body{
     }
     
     .right-container{
-      width: 50%;
+      width: 90%;
       height: 100%;
       display: flex;
       flex-direction: column;
+      margin-bottom: 100px;
     }
     
     .summary-container{
-      margin-left: 50px;
-      margin-right: 50px;
+      margin-left: 0px;
+      margin-right: 0px;
       padding: 20px;
       border: 1px solid #333;
     }
     
     .summary-title{
       font-family: "Noto Serif Display";
-      font-size: 28px;
+      font-size: 20px;
     }
     
     .summary-row{
@@ -660,6 +661,7 @@ body{
     .summary-row p{
       font-family: "Noto Sans mono";
       padding: 5px;
+      font-size: 14px;
     }
     
     .summary-row-final{
@@ -687,7 +689,7 @@ body{
     
     .price-checkout-btn-container .total{
       font-family: "Noto Serif Display";
-      font-size: 24px;
+      font-size: 20px;
       font-weight: bold;
       width: 50%;
       padding-left: 5px;
@@ -701,7 +703,7 @@ body{
       width: 100%;
       background-color: #333;
       color: #fff9ef;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: bold;
       cursor: pointer;
       font-family: "Noto Serif Display";
