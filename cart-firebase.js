@@ -110,7 +110,7 @@ async function RenderCartItemsfromFirestore(userId) {
         </div>
         <div class="btn-container">
           <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
-          <div class="btn">Move to Wishlist</div>
+          <div class="btn"><i class="fa-regular fa-heart"></i>Move to Wishlist</div>
         </div>
       `;
 
