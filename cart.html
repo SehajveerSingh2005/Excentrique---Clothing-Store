@@ -78,15 +78,38 @@
 
     <div class="main-container">
         <div class="left-container">
-            <div class="cart-container">
-                <div class="item">
+            <div class="cart-container" id="cart-container">
+                <!-- <div class="item">
                     <div class="row">
                         <div class="text">
-                            <span class="info"><p id="gender">Men's</p><p id="color">Black</p><p id="name">Classic Tee</p><p id="type">Oversized T-shirt</p></span>
+                            <span class="info"><p id="gender">Men's</p>
+                                <p id="color">Black</p>
+                                <p id="name">Classic Tee</p>
+                                <p id="type">Oversized T-shirt</p>
+                            </span>
                             <p id="price" class="price">Rs. 899</p>
                             <div class="option-container">
-                                <div class="drop-btn">Size:<p id="size">L</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                                <div class="drop-btn">Qty:<p id="qty">1</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                                    <label for="size">Size:</label>
+                                    <select id="size">
+                                        <option value="S">S</option>
+                                        <option value="M">M</option>
+                                        <option value="L">L</option>
+                                        <option value="XL">XL</option>
+                                        <option value="XXL">XXL</option>
+                                    </select>
+                                    <label for="qty">Qty:</label>
+                                    <select id="qty">
+                                        <option value="1" ${cartItemData.quantity === 1 ? 'selected' : ''}>1</option>
+                                        <option value="2" ${cartItemData.quantity === 2 ? 'selected' : ''}>2</option>
+                                        <option value="3" ${cartItemData.quantity === 3 ? 'selected' : ''}>3</option>
+                                        <option value="4" ${cartItemData.quantity === 4 ? 'selected' : ''}>4</option>
+                                        <option value="5" ${cartItemData.quantity === 5 ? 'selected' : ''}>1</option>
+                                        <option value="6" ${cartItemData.quantity === 6 ? 'selected' : ''}>2</option>
+                                        <option value="7" ${cartItemData.quantity === 7 ? 'selected' : ''}>3</option>
+                                        <option value="8" ${cartItemData.quantity === 8 ? 'selected' : ''}>4</option>
+                                        <option value="9" ${cartItemData.quantity === 9 ? 'selected' : ''}>3</option>
+                                        <option value="10" ${cartItemData.quantity === 10 ? 'selected' : ''}>4</option>
+                                        </select>
                             </div>
                         </div>
                         <img src="/t-shirts/1st mockup.png">
@@ -95,43 +118,7 @@
                         <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
                         <div class="btn">Move to Wishlist</div>
                     </div>
-                </div>
-
-                <div class="item">
-                    <div class="row">
-                        <div class="text">
-                            <span class="info"><p id="gender">Men's</p><p id="color">Black</p><p id="name">Classic Tee</p><p id="type">Oversized T-shirt</p></span>
-                            <p id="price" class="price">Rs. 899</p>
-                            <div class="option-container">
-                                <div class="drop-btn">Size:<p id="size">L</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                                <div class="drop-btn">Qty:<p id="qty">1</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                            </div>
-                        </div>
-                        <img src="/t-shirts/1st mockup.png">
-                    </div>
-                    <div class="btn-container">
-                        <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
-                        <div class="btn">Move to Wishlist</div>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="row">
-                        <div class="text">
-                            <span class="info"><p id="gender">Men's</p><p id="color">Black</p><p id="name">Classic Tee</p><p id="type">Oversized T-shirt</p></span>
-                            <p id="price" class="price">Rs. 899</p>
-                            <div class="option-container">
-                                <div class="drop-btn">Size:<p id="size">L</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                                <div class="drop-btn">Qty:<p id="qty">1</p><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
-                            </div>
-                        </div>
-                        <img src="/t-shirts/1st mockup.png">
-                    </div>
-                    <div class="btn-container">
-                        <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
-                        <div class="btn">Move to Wishlist</div>
-                    </div>
-                </div>
+                </div> -->
 
             </div>
             <div class="recco-container"></div>
@@ -153,6 +140,7 @@
         </div>
     </div>
 </body>
+<script type="module" src="cart-firebase.js"></script>
 <script src="cart.js"></script>
 <script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
 </html>

@@ -51,7 +51,7 @@ async function ProductGeneration(){
         productCard.classList.add('product-card');
 
         productCard.innerHTML = `
-        <a href="product-page.html?id=${doc.id}"><img  class="product-img" src="${productData.images[0]}"></a>
+        <a href="product-page.html?id=products/${doc.id}"><img  class="product-img" src="${productData.images[0]}"></a>
         <h2>${productData.name}</h2>
         <p>Rs. ${productData.price}</p>
         <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>

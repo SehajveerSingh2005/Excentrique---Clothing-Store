@@ -42,10 +42,11 @@ let currentIndex = 0;
 //retrieve products from product collection function
 
 const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+const productRef = urlParams.get('id');
+const productid = productRef.split('products/')[1];
 
 async function RetrieveData(){
-    const docRef = doc(db,"products",productId);
+    const docRef = doc(db,productRef);
     const docSnap = await getDoc(docRef);
     const productData = docSnap.data();
 
@@ -180,12 +181,13 @@ document.getElementById('size-list').addEventListener('click', (event) => {
     }
 });
 
+
 // Event listeners for add to cart and wishlist buttons
-document.getElementById('addtocart').addEventListener('click', () => addToCart(productId, selectedSize));
-document.getElementById('addtowishlist').addEventListener('click', () => addToWishlist(productId));
+document.getElementById('addtocart').addEventListener('click', () => addToCart(productRef, productid, selectedSize));
+document.getElementById('addtowishlist').addEventListener('click', () => addToWishlist(productRef));
 
 // Add to cart function
-async function addToCart(productId, selectedSize) {
+async function addToCart(productRef, productId, selectedSize) {
     const user = auth.currentUser;
     const quantity = parseInt(document.getElementById('quantity-dropdown').value, 10);
 
@@ -200,7 +202,7 @@ async function addToCart(productId, selectedSize) {
                 const existingData = docSnap.data();
                 const existingQuantity = existingData.quantity || 0;
                 await setDoc(cartRef, {
-                    productId: productId,
+                    productRef: productRef,
                     size: selectedSize,
                     quantity: existingQuantity + quantity,
                     createdAt: new Date().toISOString(),
@@ -208,7 +210,7 @@ async function addToCart(productId, selectedSize) {
             } else {
                 // New item, add to Firestore
                 await setDoc(cartRef, {
-                    productId: productId,
+                    productRef: productRef,
                     size: selectedSize,
                     quantity: quantity,
                     createdAt: new Date().toISOString(),
@@ -216,18 +218,32 @@ async function addToCart(productId, selectedSize) {
             }
         } else {
             // User is not signed in, save to local storage
-            let cart = JSON.parse(localStorage.getItem("cart")) || [];
-            const existingItemIndex = cart.findIndex(item => item.productId === productId && item.size === selectedSize);
+            let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+            const existingItemIndex = cart.findIndex(item => item.productRef === productRef && item.size === selectedSize);
 
             if (existingItemIndex > -1) {
                 // Item with this size already exists, update quantity
                 cart[existingItemIndex].quantity += quantity;
             } else {
-                // New item, add to cart
-                cart.push({ productId, size: selectedSize, quantity });
+                // New item, add to session storage
+                cart.push({
+                    productRef: productRef,
+                    size: selectedSize,
+                    quantity: quantity,
+                    createdAt: new Date().toISOString(),
+                });
             }
-            localStorage.setItem("cart", JSON.stringify(cart));
+            sessionStorage.setItem("cart", JSON.stringify(cart));
         }
+
+        // Update button text to "Go to Cart"
+        const addToCartButton = document.getElementById('addtocart');
+        addToCartButton.innerHTML = '<i class="fa-solid fa-cart-arrow-down"></i>Go to Cart';
+                
+        // Update button to navigate to cart page
+        addToCartButton.onclick = function() {
+            window.location.href = 'cart.html';
+        };
         alert('Added to Cart!');
     } else {
         alert('Please select a size');
@@ -236,21 +252,39 @@ async function addToCart(productId, selectedSize) {
 
 
 // Add to wishlist function
-async function addToWishlist(productId) {
+async function addToWishlist(productRef, productId) {
     const user = auth.currentUser;
 
-    if (user) {
-        // User is signed in, save to Firestore
-        const wishlistRef = doc(db, "users", user.uid, "wishlist", productId);
-        await setDoc(wishlistRef, {
-            productId: productId,
-            createdAt: Timestamp.now(),
-        }, { merge: true });
-    } else {
-        // User is not signed in, save to local storage
-        let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
-        wishlist.push({ productId });
-        localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    }
-    alert('Added to Wishlist!');
+        if (user) {
+            // User is signed in, save to Firestore
+            const wishlistRef = doc(db, "users", user.uid, "wishlist", `${productId}`);
+            const docSnap = await getDoc(wishlistRef);
+
+            if (docSnap.exists()) {
+                alert("Item already in wishlist!");
+                //remove from wishlist
+            } else {
+                // New item, add to Firestore
+                await setDoc(wishlistRef, {
+                    productRef: productRef,
+                    createdAt: new Date().toISOString(),
+                });
+            }
+        } else {
+            // User is not signed in, save to local storage
+            let wishlist = JSON.parse(sessionStorage.getItem("wishlist")) || [];
+            const existingItemIndex = wishlist.findIndex(item => item.productRef === productRef && item.size === selectedSize);
+
+            if (existingItemIndex > -1) {
+                //remove from wishlist
+            } else {
+                // New item, add to session storage
+                wishlist.push({
+                    productRef: productRef,
+                    createdAt: new Date().toISOString(),
+                });
+            }
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+        }
+        alert('Added to Wishlist!');
 }
