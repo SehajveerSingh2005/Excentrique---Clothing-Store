@@ -184,7 +184,7 @@ document.getElementById('size-list').addEventListener('click', (event) => {
 
 // Event listeners for add to cart and wishlist buttons
 document.getElementById('addtocart').addEventListener('click', () => addToCart(productRef, productid, selectedSize));
-document.getElementById('addtowishlist').addEventListener('click', () => addToWishlist(productRef));
+document.getElementById('addtowishlist').addEventListener('click', () => addToWishlist(productRef,productid));
 
 // Add to cart function
 async function addToCart(productRef, productId, selectedSize) {
