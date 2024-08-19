@@ -487,74 +487,12 @@ body{
     display: grid;
     width: 90%;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns: repeat(3,minmax(240px,1fr));
     gap: 20px;
     transition: grid-template-columns 0.5s ease;
     z-index: 0;
   }
 
-/* .product-card {
-    display: block;
-    position: relative;
-    align-items: center;
-    overflow: hidden;
-    max-height: 100%;
-    border-radius: 2.5px;
-    transition: transform 0.5s ease;
-    font-family: "Noto Sans mono";
-    margin-bottom: 25px;
-  }
-
-.product-img {
-    position: relative;
-    top: 0;
-    width: 100%;
-    height: 80%;
-    object-fit: cover;
-  }
-
-  .product-card h2{
-    position: absolute;
-    top: 80%;
-    left: 5%;
-    font-size: 20px;
-  }
-
-  .product-card p{
-    position: absolute;
-    padding-top: 5px;
-    top: 85%;
-    left: 5%;
-    font-size: 16px;
-  }
-
-  .addtowishlist-btn{
-    position: absolute;
-    right: 5%;
-    height: 16px;
-    width: 16px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .addtocart-btn{
-    position: absolute;
-    width: 100%;
-    left: 0%;
-    text-decoration: none;
-    background-color: #333;
-    color: #fff9ef;
-    bottom: 0;
-    text-align: center;
-    padding: 5px;
-  }
-
-  .addtowishlist-btn img{
-    height: 16px;
-    width: 16px;
-  } */
 
   .product-card {
     text-align: center; /* Center the image */
@@ -595,12 +533,13 @@ body{
   
   .wishlist-btn {
     text-align: right;
+    cursor: pointer;
   }
   
   .wishlist-btn i {
     font-size: 20px;
     text-align: top;
-    color: #333;
+    color: red;
   }
   
   .addtocart-btn {
@@ -619,6 +558,12 @@ body{
   .addtocart-btn:hover {
     background-color: #555;
   }
+
+@media (max-width: 1024px) {
+    .product-tiles-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
 
 @media (max-width: 768px) {
 

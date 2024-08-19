@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import { getFirestore, doc, getDoc, collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getFirestore, doc, getDoc, deleteDoc, collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
         
 const firebaseConfig = {
     apiKey: "AIzaSyDJL4cahnMBpAIKfZsBmlme6dwurkOVYq8",
@@ -87,6 +87,46 @@ async function retrieveOrdersData(userId){
     }
 }
 
+function initializeWishlistEventHandlers(userId) {
+    document.addEventListener('click', async (event) => {
+        // Check if the clicked element is the wishlist icon
+        if (event.target.matches('.wishlist-btn i.fa-heart')) {
+            console.log("clicked");
+            
+            // Find the closest wishlist button container
+            const wishlistBtn = event.target.closest('.wishlist-btn');
+            
+            if (wishlistBtn) {
+                // Retrieve the wishlistId from the button's data attribute
+                const wishlistId = wishlistBtn.getAttribute('data-wishlistId');
+                
+                if (wishlistId) {
+                    try {
+                        // Reference to the wishlist document in Firestore
+                        const docRef = doc(db, 'users', userId, 'wishlist', wishlistId);
+                        
+                        // Delete the document from Firestore
+                        await deleteDoc(docRef);
+                        
+                        // Remove the corresponding product card from the DOM
+                        wishlistBtn.closest('.product-card').remove();
+                        
+                        console.log('Item removed from wishlist.');
+                    } catch (error) {
+                        console.error('Error removing item from wishlist:', error);
+                    }
+                } else {
+                    console.error('Wishlist ID not found on the button.');
+                }
+            } else {
+                console.error('Wishlist button not found.');
+            }
+        }
+    });
+}
+
+
+
 async function RenderWishlistfromFirestore(userId) {
     // Get a reference to the user's document
     const userDocRef = doc(db, 'users', userId);
@@ -136,14 +176,15 @@ async function RenderWishlistfromFirestore(userId) {
                     <h2 class="product-name">${productData.name}</h2>
                     <p class="product-price">Rs. ${productData.price}</p>
                 </div>
-                <a href="#" class="wishlist-btn">
-                    <i class="fa-regular fa-heart"></i>
-                </a>
+                <div class="wishlist-btn" data-wishlistId="${docSnapshot.id}">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
             </div>
             <a href="#" class="addtocart-btn">Add to Cart</a>
         `;
   
         wishlistContainer.appendChild(WishlistItem);
+        initializeWishlistEventHandlers(userId);
       }
     } else {
       console.log('No such user document!');
@@ -224,11 +265,6 @@ async function RenderWishlistfromFirestore(userId) {
   //       };
   //   }
   // }
-
-
-
-
-
 
 const signOutUser = () => {
     auth.signOut().then(() => {
