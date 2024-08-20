@@ -39,6 +39,10 @@ async function RenderCartItemsfromFirestore(userId) {
   // Get the user document
   const userDocSnapshot = await getDoc(userDocRef);
 
+  let cartTotalMRP = 0;
+  let cartDiscount = 0;
+  let cartSubTotal = 0;
+
   // Check if the document exists
   if (userDocSnapshot.exists()) {
     // Get the user data
@@ -67,6 +71,12 @@ async function RenderCartItemsfromFirestore(userId) {
       }
 
       const productData = productSnap.data();
+
+      if(cartItemData.quantity === 1){
+        cartTotalMRP += productData.price;
+      }else{
+        cartTotalMRP += (productData.price * cartItemData.quantity);
+      }
 
       const cartItem = document.createElement('div');
       cartItem.classList.add('item');
@@ -116,9 +126,29 @@ async function RenderCartItemsfromFirestore(userId) {
 
       cartContainer.appendChild(cartItem);
     }
+    console.log(cartTotalMRP);
+    cartDiscount = cartTotalMRP * 0.2;
+    console.log(cartDiscount);
+    cartSubTotal = cartTotalMRP - cartDiscount;
+    console.log(cartSubTotal);
+
+    RenderCartSummary(cartTotalMRP,cartDiscount,cartSubTotal);
+
   } else {
     console.log('No such user document!');
   }
+}
+
+async function RenderCartSummary(cartTotalMRP,cartDiscount,cartSubTotal){
+  const carttotal = document.getElementById('total-mrp');
+  const cartdiscount = document.getElementById('discount');
+  const cartsubtotal = document.getElementById('sub-total');
+  const cartsubtotalfinal = document.getElementById('sub-total-final');
+
+  carttotal.textContent = `Rs. ${cartTotalMRP}`;
+  cartdiscount.textContent = `Rs. ${cartDiscount}`;
+  cartsubtotal.textContent = `Rs. ${cartSubTotal}`;
+  cartsubtotalfinal.textContent = `Rs. ${cartSubTotal}`;
 }
 
 
