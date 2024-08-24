@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excentrique | Checkout</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="checkout.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+        
+    <div class="overlay" id="overlay"></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
+            <div class="logo">
+                <a href="index.html" class="noto-serif-display">Excentrique.</a>
+            </div>
+            <div class="personal">
+                <ul class="personal">
+                    <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="sidemenu">
+        <div class="close-menu"  id="close-menu"><i class="fa-solid fa-xmark"></i></div>
+        <div class="nav-links" id="nav-links">
+            <div class="cat-dropdown">
+                <div class="dropdown">
+                    <button class="dropbtn">MEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Shirts</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">WOMEN
+                        <!-- <i class="fa fa-caret-down"></i> -->
+                      </button>
+                      <div class="dropdown-content">
+                        <a href="#">T-shirts</a>
+                        <a href="#">Tops</a>
+                        <a href="#">Cargo Pants</a>
+                      </div>
+                </div>
+            </div>
+            <ul class="links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#cart">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="heading">
+        <hr>
+        <h1 class="title">Checkout</h1>
+        <hr>
+    </div>
+
+    <div class="main-container">
+        <div class="left-container">
+            <div class="shipping-container" id="shipping-container">
+                <h1 class="title">Shipping Details</h1>
+                <hr class="line">
+                <form>
+                    <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-between;">
+                        <div style="display: flex; flex-direction: column; width: 48%; ">
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" placeholder="First name">
+                        </div>
+                        <div style="display: flex; flex-direction: column; width: 48%;">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" placeholder="Last name">
+                        </div>
+                    </div>
+                    
+                    <label for="street-address">Street Address</label>
+                    <input type="text" id="street-address-1" placeholder="House Number, Apartment and Street Name">
+                    <input type="text" id="street-address-2" placeholder="Landmark, Locality, Road Name or Area Name">
+
+                    <label for="city">Town/City</label>
+                    <input type="text" id="city">
+
+                    <label for="state">State</label>
+                    <select id="state">
+                        <option value="andhra-pradesh">Andhra Pradesh</option>
+                        <option value="arunachal-pradesh">Arunachal Pradesh</option>
+                        <option value="assam">Assam</option>
+                        <option value="bihar">Bihar</option>
+                        <option value="chattisgarh">Chattisgarh</option>
+                        <option value="goa">Goa</option>
+                        <option value="gujarat">Gujarat</option>
+                        <option value="haryana">Haryana</option>
+                        <option value="himachal-pradesh">Himachal Pradesh</option>
+                        <option value="jammu-and-kashmir">Jammu and Kashmir</option>
+                        <option value="jharkhand">Jharkhand</option>
+                        <option value="karnatala">Karnatka</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="madhya-pradesh">Madhya Pradesh</option>
+                        <option value="maharastra">Maharastra</option>
+                        <option value="manipur">Manipur</option>
+                        <option value="mizoram">Mizoram</option>
+                        <option value="nagaland">Nagaland</option>
+                        <option value="orissa">Orissa</option>
+                        <option value="punjab">Punjab</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="sikkim">Sikkim</option>
+                        <option value="tamil-nadu">Tamil Nadu</option>
+                        <option value="telangana">Telangana</option>
+                        <option value="tripura">Tripura</option>
+                        <option value="uttarakhand">Uttarakhand</option>
+                        <option value="uttar-pradesh">Uttar Pradesh</option>
+                        <option value="west-bengal">West Bengal</option>
+                        <option value="andaman-and-nicobar-islands">Andaman and Nicobar Islands</option>
+                        <option value="chandigarh">Chandigarh</option>
+                        <option value="dadra-and-nagar-haveli">Dadra and Nagar Haveli</option>
+                        <option value="daman-and-diu">Daman and Diu</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="lakshadweep">Lakshadweep</option>
+                        <option value="pondicherry">Pondicherry(Puducherry)</option>
+                    </select>
+
+                    <label for="pincode">Pincode/ZIP</label>
+                    <input type="text" id="pincode" name="pincode" placeholder="Enter valid pincode">
+                </form>
+            </div>
+            <div class="payment-container">
+                <h1 class="title">Payment Methods</h1>
+                <hr class="line">
+
+                <div class="options-container">
+                    <label class="radio-container">UPI
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="radio-container">Credit/Debit Card
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                      <label class="radio-container">COD (Cash on Delivery)
+                        <input type="radio" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                </div>
+
+            </div>
+        </div>
+        <div class="right-container">
+            <div class="summary-container" id="summary-container">
+                <h1 class="summary-title">Order Summary</h1>
+                <hr>
+                <div class="summary-row"><p>Total MRP (incl. of taxes)</p><p id="total-mrp"></p></div>
+                <div class="summary-row"><p>Cart Discount</p><p id="discount"></p></div>
+                <div class="summary-row"><p>Delivery Charges</p><p id="delivery">FREE</p></div>
+                <div class="summary-row-final"><p>Subtotal</p><p id="sub-total"></p></div>
+                <p>FREE delivery!</p>
+                <div class="price-checkout-btn-container">
+                    <div class="total" id="sub-total-final"></div>
+                    <div class="checkout-btn" id="checkout-btn">Place Order.</div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-checkout-btn">
+            <div class="total">Rs. 899</div>
+            <div class="checkout-btn" id="checkout-btn">Checkout</div>
+        </div>
+    </div>
+</body>
+<script type="module" src="checkout-firebase.js"></script>
+<script src="checkout.js"></script>
+<script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+</html>

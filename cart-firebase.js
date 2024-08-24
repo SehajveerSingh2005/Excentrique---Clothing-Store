@@ -33,10 +33,9 @@ else{
 });
 
 async function RenderCartItemsfromFirestore(userId) {
-  // Get a reference to the user's document
+
   const userDocRef = doc(db, 'users', userId);
   
-  // Get the user document
   const userDocSnapshot = await getDoc(userDocRef);
 
   let cartTotalMRP = 0;
@@ -45,14 +44,14 @@ async function RenderCartItemsfromFirestore(userId) {
 
   // Check if the document exists
   if (userDocSnapshot.exists()) {
-    // Get the user data
+
     const userData = userDocSnapshot.data();
 
-    // Query the cart subcollection
+
     const q = query(collection(db, 'users', userId, 'cart'),orderBy('createdAt','desc'));
 
     const cartContainer = document.getElementById('cart-container');
-    cartContainer.innerHTML = '';  // Clear existing content
+    cartContainer.innerHTML = ''; 
 
     const querySnapshot = await getDocs(q);
 
@@ -61,17 +60,18 @@ async function RenderCartItemsfromFirestore(userId) {
 
       const productId = cartItemData.productRef;
 
-      // Fetch the product data using the productRef
+
       const productRef = doc(db,productId);
       const productSnap = await getDoc(productRef);
       
       if (!productSnap.exists()) {
         console.error('Product does not exist for productRef:', productId);
-        continue;  // Skip this item if the product does not exist
+        continue;  
       }
 
       const productData = productSnap.data();
 
+      //calculate Total MRP
       if(cartItemData.quantity === 1){
         cartTotalMRP += productData.price;
       }else{
@@ -81,7 +81,7 @@ async function RenderCartItemsfromFirestore(userId) {
       const cartItem = document.createElement('div');
       cartItem.classList.add('item');
 
-      // Populate the cart item with data from the cart subcollection and product data
+   
       cartItem.innerHTML = `
         <div class="row">
           <div class="text">
@@ -126,11 +126,10 @@ async function RenderCartItemsfromFirestore(userId) {
 
       cartContainer.appendChild(cartItem);
     }
-    console.log(cartTotalMRP);
+
     cartDiscount = cartTotalMRP * 0.2;
-    console.log(cartDiscount);
+
     cartSubTotal = cartTotalMRP - cartDiscount;
-    console.log(cartSubTotal);
 
     RenderCartSummary(cartTotalMRP,cartDiscount,cartSubTotal);
 
@@ -158,29 +157,38 @@ async function RenderCartItemsFromSessionStorage() {
   const cartContainer = document.getElementById('cart-container');
   cartContainer.innerHTML = ''; // Clear any previous items
 
+  let cartTotalMRP = 0;
+  let cartDiscount = 0;
+  let cartSubTotal = 0;
+
   if (cart.length === 0) {
       cartContainer.innerHTML = '<p>No items in cart.</p>';
   } else {
       for(const item of cart){
         const productId = item.productRef;
 
-        // Fetch the product data using the productRef
+
         const productRef = doc(db,productId);
         const productSnap = await getDoc(productRef);
         
         if (!productSnap.exists()) {
           console.error('Product does not exist for productRef:', productId);
-            // Skip this item if the product does not exist
         }
   
         const productData = productSnap.data();
 
+        if(item.quantity === 1){
+          cartTotalMRP += productData.price;
+        }else{
+          cartTotalMRP += (productData.price * item.quantity);
+        }
 
-          const cartItem = document.createElement('div');
-          cartItem.classList.add('item');
 
-          cartItem.innerHTML = `
-                  <div class="row">
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('item');
+
+        cartItem.innerHTML = `
+        <div class="row">
           <div class="text">
             <span class="info">
               <p id="gender">Men's</p>
@@ -221,9 +229,16 @@ async function RenderCartItemsFromSessionStorage() {
         </div>
           `;
 
-          cartContainer.appendChild(cartItem);
-      };
+      cartContainer.appendChild(cartItem);
+    };
   }
+
+  cartDiscount = cartTotalMRP * 0.2;
+
+  cartSubTotal = cartTotalMRP - cartDiscount;
+
+  RenderCartSummary(cartTotalMRP,cartDiscount,cartSubTotal);
+
 }
 
 
