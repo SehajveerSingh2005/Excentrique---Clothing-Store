@@ -237,6 +237,7 @@ body{
   
   .left-container{
     padding-top: 40px;
+    padding-left: 50px;
     width: 50%;
     min-height: 80vh;
     display: flex;
@@ -387,6 +388,7 @@ body{
   
   .right-container{
     padding-top: 40px;
+    padding-right: 50px;
     width: 50%;
     height: 100%;
     display: flex;
@@ -402,6 +404,45 @@ body{
   .summary-title{
     font-family: "Noto Serif Display";
     font-size: 28px;
+  }
+
+  .items-container{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .item{
+    display: flex;
+    align-items: center;
+    font-family: "Noto Sans mono";
+  }
+
+  .info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  .item img{
+    height: 100px;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  .item h3{
+    margin-left: 5px;
+  }
+
+  .item span{
+    font-family: "Noto Sans mono";
+    display: flex;
+    font-size: 14px;
+  }
+
+  .item .item-price{
+    font-weight: bold;
   }
   
   .summary-row{

@@ -207,6 +207,17 @@ body{
     padding: 0 10px;
 }
 
+.loginbtn a{
+    color: #fff9ef;
+    text-decoration: none;
+    font-size: 24px;
+    font-family: "Noto Serif Display";
+    text-align: center;
+    font-weight: bold;
+    display: block;
+    padding-left: 20px;
+  }
+
 .main-container{
     display: flex;
     flex-direction: row;

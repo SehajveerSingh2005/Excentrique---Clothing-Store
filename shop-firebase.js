@@ -24,11 +24,14 @@ const signedinIcons = document.querySelectorAll('.signedin-icons');
 const loginbtn = document.getElementById('loginbtn');
 
 if (user) {
-    // loginbtn.style.display = 'none';
+    signedinIcons.forEach(icon => icon.style.display = 'block');
+    loginbtn.style.display = 'none';
 }
 else{
+    signedinIcons.forEach(icon => icon.style.display = 'none');
+    loginbtn.style.display = 'block';
   }
-});
+})
 
 document.addEventListener('DOMContentLoaded', () => {
     ProductGeneration();

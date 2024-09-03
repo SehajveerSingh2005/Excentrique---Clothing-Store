@@ -207,6 +207,17 @@ body{
     padding: 0 16px;
 }
 
+.loginbtn a{
+  color: #fff9ef;
+  text-decoration: none;
+  font-size: 24px;
+  font-family: "Noto Serif Display";
+  text-align: center;
+  font-weight: bold;
+  display: block;
+  padding-left: 20px;
+}
+
 .page-navigation-list{
   padding-top: 40px;
   padding-left: 40px;
@@ -933,7 +944,7 @@ label[for="quantity-dropdown"] {
       padding: 5px;
     }
     
-    .collapsible p{
+    .collapsible .expanded p{
       margin-top: 10px;
       margin-left: 10%;
       width: 80%;
