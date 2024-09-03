@@ -149,8 +149,8 @@ function setupSlideshow() {
     let touchEndX = 0;
 
     function handleGesture() {
-        if (touchEndX < touchStartX) plusSlides(1);
-        if (touchEndX > touchStartX) plusSlides(-1);
+        if (touchEndX < touchStartX) plusSlides(-1);
+        if (touchEndX > touchStartX) plusSlides(1);
     }
 
     const slideshowContainer = document.querySelector('.slideshow-container');
