@@ -244,6 +244,7 @@ body{
     flex-direction: column;
     align-items: center;
     border-right: 1px solid #333;
+    padding-bottom: 50px;
   }
   
   .shipping-container{
@@ -425,20 +426,21 @@ body{
   }
 
   .item img{
-    height: 100px;
+    height: 70px;
     border-radius: 5px;
     margin-top: 5px;
     margin-bottom: 5px;
   }
 
   .item h3{
-    margin-left: 5px;
+    margin-left: 10px;
   }
 
   .item span{
     font-family: "Noto Sans mono";
     display: flex;
     font-size: 14px;
+    padding-left: 5px;
   }
 
   .item .item-price{

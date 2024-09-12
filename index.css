@@ -407,6 +407,113 @@ display: block;
     color: #fff9ef;
   }
 
+
+  .footer{
+    background-color: #333; 
+    color: #fff9ef; 
+    padding: 40px 0;
+  }
+
+  .footer-container{
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+  }
+
+  .footer-about-container{
+    flex: 1; 
+    min-width: 250px; 
+    margin-bottom: 20px;
+  }  
+
+  .footer-about-container h3{
+    color: #fff9ef; 
+    font-size: 1.5rem; 
+    margin-bottom: 15px;
+    font-family: "Noto Serif Display";
+  }
+
+  .footer-about-container img{
+    height: 100px;
+  }
+
+  .footer-about-container p{
+    line-height: 1.6;
+    font-family: "Noto Sans mono";
+  }
+
+  .footer-links-container{
+    flex: 1; min-width: 250px; margin-bottom: 20px;
+  }
+
+  .footer-links-container h3{
+    color: #fff9ef; 
+    font-size: 1.5rem; 
+    margin-bottom: 15px;
+    font-family: "Noto Serif Display";
+  }
+
+  .footer-links-container ul{
+    list-style: none; 
+    padding: 0;
+    font-family: "Noto Sans mono";
+  }
+
+  .footer-links-container ul a{
+    color: #fff9ef; 
+    text-decoration: none; 
+    line-height: 2;
+  }
+
+  .footer-letter-container{
+    flex: 1; 
+    min-width: 250px; 
+    margin-bottom: 20px;
+  }
+
+  .footer-letter-container h3{
+    color: #fff9ef; 
+    font-size: 1.5rem; 
+    margin-bottom: 15px;
+    font-family: "Noto Serif Display";
+  }
+
+  .footer-letter-container p{
+    line-height: 1.6;
+    font-family: "Noto Sans mono";
+  }
+
+  .footer-letter-container form input{
+    padding: 10px; 
+    width: 100%; 
+    margin-bottom: 10px; 
+    border: none;
+    font-family: "Noto Sans mono";
+    background-color: #fff9ef;
+    border-radius: 2.5px;
+  }
+
+  .footer-letter-container form button{
+    background-color: #fff9ef; 
+    color: #333; 
+    padding: 10px 20px; 
+    border: none; 
+    cursor: pointer;
+    border-radius: 2.5px;
+    font-family: "Noto Sans mono";
+    font-weight: bold;
+  }
+
+  .copyright-container{
+    text-align: center; 
+    padding-top: 20px; 
+    border-top: 1px solid #333;
+  }
+
+
+
   /* Responsive styles */
 @media (max-width: 768px) {
     
