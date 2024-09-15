@@ -1,3 +1,7 @@
+html{
+  margin: 0;
+}
+
 *{
   margin: 0;
 }
@@ -19,11 +23,10 @@ font-variation-settings:
 .navbar {
   background-color: #333;
   display: flex;
-  height: 80px;
   flex-direction: column;
   justify-content: center;
   color: #fff9ef;
-  padding: 0px 0;
+  padding: 20px 0;
   position: sticky;
   top: 0;
   width: 100%;
@@ -60,19 +63,7 @@ transition: opacity 0.5s ease, visibilty 0.5s ease;
   
 }
 
-.logo img{
-  top: -75%;
-  height: 60px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-}
-
-.logo a{
-  text-decoration: none;
-}
-
-/* .logo a {
+.logo a {
   color: #fff9ef;
   text-decoration: none;
   font-size: 36px;
@@ -80,7 +71,7 @@ transition: opacity 0.5s ease, visibilty 0.5s ease;
   left: 50%;
   transform: translateX(-50%);
   line-height: 0;
-} */
+}
 
 .sidemenu{
 position: absolute;
@@ -241,11 +232,11 @@ display: block;
     top: 0;
   }
 
-  /* .slideshow-container a img{
+  .slideshow-container a img{
     width: 100%;
-    height: 50vh;
+    height: calc(100vh - 64px);
     object-fit: cover;
-  } */
+  }
 
   .slideshow-container-mobile{
     display: none;
@@ -255,6 +246,10 @@ display: block;
   .dot-container{
     display: flex;
     justify-content: center;
+    position: absolute;
+    bottom: 1.5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
   }
 
   .dot-container-mobile{
@@ -270,17 +265,19 @@ display: block;
   }
   
   .dot {
-    height: 4px;
-    width: 20px;
-    border-radius: 1.25px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 1px solid #333;
     margin: 0 2px;
-    background-color: #bbb;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.6s ease, width 0.6s ease, border-radius 0.6s ease;
     cursor: pointer;
   }
   
   .activeslide {
+    width: 30px;
+    border-radius: 8px;
     background-color: #333;
   }
   
@@ -301,13 +298,15 @@ display: block;
 
   .shop-btn-container{
     display: flex;
-    margin-top: 50px;
+    margin-top: 20px;
     width: 50%;
-    position: relative;
     left: 50%;
     transform: translateX(-50%);
     justify-content: space-evenly;
     align-items: center;
+    z-index: 2;
+    position: absolute;
+    bottom: 5%;
   }
 
   .shop-btn {
@@ -315,10 +314,11 @@ display: block;
     color: #333;
     font-size: 24px;
     font-family: "Noto Serif Display";
+    font-weight: bold;
     padding: 10px;
     width: 200px;
     border-radius: 5px;
-    background-color: #fff9ef;
+    background-color: rgba(255, 249, 239,0.5);
     border: 2px solid #333;
     display: flex;
     align-items: center;
@@ -330,8 +330,8 @@ display: block;
   }
 
   .shop-btn:hover{
-    color: #fff9ef;
-    background-color: #333;
+    background-color: #fff9ef;
+    color: #333;
   }
 
   .border{
@@ -350,7 +350,51 @@ display: block;
     font-family: "Noto Serif Display";
     display: flex;
     font-size: 36px;
+    font-weight: 700;
   }
+
+  .new-drops-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .new-drops-tiles-container{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    gap: 20px;
+  }
+
+  .drop-card {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 2.5px;
+  }
+
+  .drop-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .best-sellers-container{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
 
   .collection-container{
     margin-top: 50px;
@@ -517,7 +561,7 @@ display: block;
   /* Responsive styles */
 @media (max-width: 768px) {
     
-  .container{
+.container{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -534,8 +578,8 @@ display: block;
 
 .navbar{
   z-index: 3;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .nav-links {
@@ -558,13 +602,11 @@ display: block;
     top:60px;
 }
 
-.logo img{
-  
-  height: 40px;
-  transform: translateX(-50%);
-  transform: translateY(10%);
+.logo a{
+  font-size: 24px;
   position: inherit;
   line-height: 100%;
+  font-weight: bold;
 }
 
 .hamburger, .close-menu{

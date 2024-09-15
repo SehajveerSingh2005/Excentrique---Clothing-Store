@@ -43,19 +43,17 @@ function showDiv(divId) {
     const ordersDiv = document.getElementById('orders');
     const wishlistDiv = document.getElementById('wishlist');
 
-    // Hide all divs
+
     profileDiv.style.display = 'none';
     ordersDiv.style.display = 'none';
     wishlistDiv.style.display = 'none';
 
-    // Show the selected div
     document.getElementById(divId).style.display = 'flex';
 
-    // Remove 'active' class from all nav buttons
+
     document.querySelectorAll('.nav-btns').forEach(function(btn) {
         btn.classList.remove('active');
     });
 
-    // Add 'active' class to the clicked nav button
     document.getElementById(divId + 'btn').classList.add('active');
 }

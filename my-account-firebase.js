@@ -89,26 +89,23 @@ async function retrieveOrdersData(userId){
 
 function initializeWishlistEventHandlers(userId) {
     document.addEventListener('click', async (event) => {
-        // Check if the clicked element is the wishlist icon
         if (event.target.matches('.wishlist-btn i.fa-heart')) {
             console.log("clicked");
             
-            // Find the closest wishlist button container
             const wishlistBtn = event.target.closest('.wishlist-btn');
             
             if (wishlistBtn) {
-                // Retrieve the wishlistId from the button's data attribute
+
                 const wishlistId = wishlistBtn.getAttribute('data-wishlistId');
                 
                 if (wishlistId) {
                     try {
-                        // Reference to the wishlist document in Firestore
+
                         const docRef = doc(db, 'users', userId, 'wishlist', wishlistId);
                         
-                        // Delete the document from Firestore
+
                         await deleteDoc(docRef);
                         
-                        // Remove the corresponding product card from the DOM
                         wishlistBtn.closest('.product-card').remove();
                         
                         console.log('Item removed from wishlist.');
