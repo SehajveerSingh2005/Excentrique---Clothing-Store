@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const detailsbutton = document.getElementById('details-button');
     const detailscollapsible = document.getElementById('details-collapsible');
     const despbutton = document.getElementById('desp-button');
-    const despcollapsible = document.getElementById('desp-collapsible');
+    const despcollapsible = document.getElementById('description-collapsible');
     detailsbutton.classList.add('expanded');
     detailscollapsible.classList.add('expanded');
 
