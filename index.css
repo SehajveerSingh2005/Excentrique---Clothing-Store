@@ -41,7 +41,7 @@ body{
 
 .container.opaque{
   padding:24px 36px;
-  background-color: #333;
+  background-color: #fff9ef;
 }
 
 .search{
@@ -58,7 +58,7 @@ body{
 }
 
 .search a.opaque{
-  color: #fff9ef;
+  color: #333;
 }
 
 .logo-text {
@@ -78,7 +78,7 @@ body{
 
 .logo-text.opaque{
   font-size: 42px;
-  color: #fff9ef;
+  color: #333;
 }
 
 .line{
@@ -91,7 +91,7 @@ body{
 
 .line.opaque{
   width: 100%;
-  border: 1px solid #fff9ef;
+  border: 1px solid #333;
 }
 
 .navbar2{
@@ -106,8 +106,8 @@ body{
 }
 
 .navbar2.opaque{
-  background-color: #3a3a3a;
-  color: #fff9ef;
+  background-color: #fff9ef;
+  color: #333;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -122,8 +122,8 @@ body{
 .navbar2 li{
   font-family: "Noto Sans mono";
   font-size: 20px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -176,7 +176,7 @@ body{
 }
 
 .navbar2.opaque ul li:hover .underline{
-  background-color: #fff9ef;
+  background-color: #333;
   width: 30px;
 }
 
@@ -186,7 +186,7 @@ body{
   top: 190px;
   width: 100%;
   left: 0;
-  background-color: transparent;
+  background-color: #fff9ef4f;
   border: 1px solid #333;
   backdrop-filter: blur(10px);
   opacity: 0;
@@ -280,7 +280,7 @@ body{
 }
 
 .signedin-icons i.light-icons{
-  color: #fff9ef;
+  color: #333;
 }
 
 .loginbtn a{
