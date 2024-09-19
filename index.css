@@ -151,7 +151,7 @@ body{
 
 .navbar2.opaque a:hover{
   color: inherit;
-  text-shadow:0px 0px 30px #fff9ef;
+  text-shadow:0px 0px 30px #333;
   -moz-transition: text-shadow 0.2s ease-in;
   -o-transition: text-shadow 0.2s ease-in;
   -webkit-transition: text-shadow 0.2s ease-in;
@@ -196,7 +196,7 @@ body{
 
 .navbar2 li:hover .menu-container{
   transition: all 0.3s ease;
-  top: 170px;
+  top: 178px;
   opacity: 1;
   visibility: visible;
 }

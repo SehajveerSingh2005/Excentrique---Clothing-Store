@@ -63,6 +63,8 @@ async function RetrieveData(){
         document.getElementById('product-image-2').src = productData.images[1];
         document.getElementById('product-image-3').src = productData.images[2];
         document.getElementById('product-image-4').src = productData.images[3];
+        document.getElementById('product-image-5').src = productData.images[4];
+        document.getElementById('product-image-6').src = productData.images[5];
 
         document.getElementById('product-image-1-full').src = productData.images[0];
         document.getElementById('product-image-2-full').src = productData.images[1];

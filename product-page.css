@@ -245,7 +245,6 @@ body{
 .left-container{
   padding-top: 10px;
   padding-left: 20px;
-  height: 100vh;
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
   gap: 10px;
