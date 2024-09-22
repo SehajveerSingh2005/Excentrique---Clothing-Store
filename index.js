@@ -4,10 +4,15 @@ const closeMenu = document.getElementById('close-menu');
 const navLinks = document.getElementById('nav-links');
 const overlay = document.getElementById('overlay');
 
+let slideIndexDesktop = 0;
+let slideIndexMobile = 0;
+
 window.addEventListener('scroll', function() {
   var container = document.querySelector('.container');
   var logo = document.querySelector('.logo-text');
   var navbar2 = document.querySelector('.navbar2');
+  var content = document.querySelectorAll('.navbar2 .content');
+  var menutext = document.querySelectorAll('.row .menu-links li a');
   var line = document.querySelector('.line');
   var search = document.querySelector('.search a');
   const icons = document.querySelectorAll('.signedin-icons i');
@@ -18,7 +23,11 @@ window.addEventListener('scroll', function() {
       navbar2.classList.add('opaque');
       line.classList.add('opaque');
       search.classList.add('opaque');
-      icons.forEach(icon => icon.classList.add('light-icons'));
+      icons.forEach(icon => icon.classList.add('opaque'));
+      
+      menutext.forEach(text => text.classList.remove('light'));
+      content.forEach(x => x.classList.remove('light'));
+
   } else {
 
       container.classList.remove('opaque');
@@ -26,7 +35,15 @@ window.addEventListener('scroll', function() {
       navbar2.classList.remove('opaque');
       line.classList.remove('opaque');
       search.classList.remove('opaque');
-      icons.forEach(icon => icon.classList.remove('light-icons'));
+      icons.forEach(icon => icon.classList.remove('opaque'));
+
+      const slides = document.querySelectorAll(".slideshow-container .mySlides");
+      const currentSlideColor = slides[slideIndexDesktop - 1].getAttribute('data-color');
+      
+      if (currentSlideColor === "dark") {
+        menutext.forEach(text => text.classList.add('light'));
+        content.forEach(x => x.classList.add('light'));
+      }
   }
 });
 
@@ -52,8 +69,7 @@ window.addEventListener('scroll', function() {
 // });
 
 
-let slideIndexDesktop = 0;
-let slideIndexMobile = 0;
+
 
 function clickdots(n){
   clearInterval(slideinterval);
@@ -73,6 +89,13 @@ function showSlidesDesktop() {
   let i;
   let slides = document.querySelectorAll(".slideshow-container .mySlides");
   let dots = document.querySelectorAll(".slideshow-container .dot");
+  let logo = document.querySelector('.logo-text');
+  var navbar2 = document.querySelector('.navbar2');
+  var content = document.querySelectorAll('.navbar2 .content');
+  var menutext = document.querySelectorAll('.row .menu-links li a');
+  var search = document.querySelector('.search a');
+  var shopbtn = document.querySelector('.shop-btn');
+  const icons = document.querySelectorAll('.signedin-icons i');
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
@@ -83,6 +106,29 @@ function showSlidesDesktop() {
   }
   slides[slideIndexDesktop-1].style.display = "block";  
   dots[slideIndexDesktop-1].className += " activeslide";
+
+  const currentSlideColor = slides[slideIndexDesktop - 1].getAttribute('data-color');
+  
+  logo.classList.remove('light');
+  navbar2.classList.remove('light');
+  search.classList.remove('light');
+  shopbtn.classList.remove('light');
+  icons.forEach(icon => icon.classList.remove('light'));
+  menutext.forEach(text => text.classList.remove('light'));
+  content.forEach(x => x.classList.remove('light'));
+  dots.forEach(dot => dot.classList.remove('light'));
+  // Change logo color based on the data-color attribute
+  if (currentSlideColor === "dark") {
+    logo.classList.add('light');
+    navbar2.classList.add('light');
+    search.classList.add('light');
+    shopbtn.classList.add('light');
+    content.forEach(x => x.classList.add('light'));
+    icons.forEach(icon => icon.classList.add('light'));
+    menutext.forEach(text => text.classList.add('light'));
+    dots.forEach(dot => dot.classList.add('light'));
+  }
+
   slideinterval = setTimeout(showSlidesDesktop, 5000);
 }
 
