@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 </head>
 <body>
@@ -21,32 +22,62 @@
 
             <p class="header">Admin Menu</p>
             <ul class="menu">
-                <a href="dashboard.html"><li class="active">Dashboard</li></a>
-                <a href="orders.html"><li>Orders</li></a>
-                <a href="products.html"><li>Products</li></a>
-                <a href="customers.html"><li>Customers</li></a>
-                <a href="analytics.html"><li>Analytics</li></a>
-                <a href="discounts.html"><li>Discounts</li></a>
+                <a href="dashboard.html"><li class="active"><span class="material-symbols-outlined">dashboard</span>Dashboard</li></a>
+                <a href="orders.html"><li><span class="material-symbols-outlined">shopping_cart</span>Orders</li></a>
+                <a href="products.html"><li><span class="material-symbols-outlined">inventory_2</span>Products</li></a>
+                <a href="customers.html"><li><span class="material-symbols-outlined">group</span>Customers</li></a>
+                <a href="analytics.html"><li><span class="material-symbols-outlined">monitoring</span>Analytics</li></a>
+                <a href="discounts.html"><li><span class="material-symbols-outlined">savings</span>Discounts</li></a>
             </ul>
         </div>
         <div class="dashboard-container">
             <div class="heading-bar">
                 <p class="heading">Good Morning, Sehajveer Singh!</p>
-                <i class="fa-regular fa-user" aria-hidden="true"></i>
+                <i class="fa-regular fa-user"></i>
             </div>
             <hr class="line">
 
             <div class="report-tiles-container">
                 <div class="report-tile">
-                    <div class="icon"></div>
+                    <span class="material-symbols-outlined">inventory_2</span>
                     <div class="info">
-                        <p>Total products</p>
+                        <p class="title">Total products</p>
                         <p class="stats">10</p>
                     </div>
                 </div>
-                <div class="report-tile"></div>
-                <div class="report-tile"></div>
-                <div class="report-tile"></div>
+                <div class="report-tile">
+                    <span class="material-symbols-outlined">inventory</span>
+                    <div class="info">
+                        <p class="title">Completed Orders</p>
+                        <p class="stats">18</p>
+                    </div>
+                </div>
+                <div class="report-tile">
+                    <span class="material-symbols-outlined">contract_delete</span>
+                    <div class="info">
+                        <p class="title">Canceled Orders</p>
+                        <p class="stats">2</p>
+                    </div>
+                </div>
+                <div class="report-tile">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    <div class="info">
+                        <p class="title">Top Products</p>
+                        <p class="stats">5</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sales-report-container">
+                <p class="sales-title">Your Sales Report</p>
+                <p class="sales-subtitle">Business is booming</p>
+
+                <div class="sales-row">
+                    <div class="sale-stats">
+                        <p class="total-sale">Rs. 2000</p>
+                        <p class="sale-profit">+Rs. 900 (25%)</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
