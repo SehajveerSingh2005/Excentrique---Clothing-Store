@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 </head>
 <body>
     <div class="main-container">
@@ -77,10 +77,14 @@
                         <p class="total-sale">Rs. 2000</p>
                         <p class="sale-profit">+Rs. 900 (25%)</p>
                     </div>
+                    <div class="graph">
+                        <canvas id="chart" class="chart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script src="dashboard.js"></script>
 <script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
 </html>
