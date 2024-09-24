@@ -1,9 +1,4 @@
 
-const hamburger = document.getElementById('hamburger');
-const closeMenu = document.getElementById('close-menu');
-const navLinks = document.getElementById('nav-links');
-const overlay = document.getElementById('overlay');
-
 let slideIndexDesktop = 0;
 let slideIndexMobile = 0;
 

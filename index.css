@@ -135,7 +135,7 @@ body{
   font-family: "Noto Sans mono";
   font-size: 20px;
   padding-top: 16px;
-  padding-bottom: 16px;
+  padding-bottom: 12px;
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -226,7 +226,7 @@ body{
 .navbar2.opaque li:hover .menu-container{
   transition: all 0.3s ease;
   background-color: #fff9ef;
-  top: 140px;
+  top: 136px;
   opacity: 1;
   visibility: visible;
 }

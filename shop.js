@@ -1,28 +1,3 @@
-const hamburger = document.getElementById('hamburger');
-const closeMenu = document.getElementById('close-menu');
-const navLinks = document.getElementById('nav-links');
-const overlay = document.getElementById('overlay');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.add('active');
-    overlay.classList.add ('overlay-active');
-    hamburger.style.display = 'none';
-    closeMenu.classList.add('close-menu-active');
-});
-
-closeMenu.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    overlay.classList.remove('overlay-active');
-    hamburger.style.display = 'block';
-    closeMenu.classList.remove('close-menu-active');
-});
-
-overlay.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    overlay.classList.remove('overlay-active');
-    hamburger.style.display = 'block';
-    closeMenu.classList.remove('close-menu-active');
-});
 
 function toggleFilter() {
     const filterContainer = document.getElementById('filter-container');
@@ -54,3 +29,30 @@ document.querySelectorAll('.product-card').forEach(card => {
     });
 });
 
+window.addEventListener('scroll', function() {
+    var container = document.querySelector('.container');
+    var logo = document.querySelector('.logo-text');
+    var navbar2 = document.querySelector('.navbar2');
+    var line = document.querySelector('.line');
+    var search = document.querySelector('.search a');
+    const icons = document.querySelectorAll('.signedin-icons i');
+    if (window.scrollY > 50) {
+  
+        container.classList.add('opaque');
+        logo.classList.add('opaque');
+        navbar2.classList.add('opaque');
+        line.classList.add('opaque');
+        search.classList.add('opaque');
+        icons.forEach(icon => icon.classList.add('opaque'));
+  
+    } else {
+  
+        container.classList.remove('opaque');
+        logo.classList.remove('opaque');
+        navbar2.classList.remove('opaque');
+        line.classList.remove('opaque');
+        search.classList.remove('opaque');
+        icons.forEach(icon => icon.classList.remove('opaque'));
+  
+    }
+  });
