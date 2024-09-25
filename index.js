@@ -10,6 +10,7 @@ window.addEventListener('scroll', function() {
   var menutext = document.querySelectorAll('.row .menu-links li a');
   var line = document.querySelector('.line');
   var search = document.querySelector('.search a');
+  var loginbtn = document.querySelector('.loginbtn a');
   const icons = document.querySelectorAll('.signedin-icons i');
   if (window.scrollY > 100) {
 
@@ -18,6 +19,7 @@ window.addEventListener('scroll', function() {
       navbar2.classList.add('opaque');
       line.classList.add('opaque');
       search.classList.add('opaque');
+      loginbtn.classList.add('opaque');
       icons.forEach(icon => icon.classList.add('opaque'));
       
       menutext.forEach(text => text.classList.remove('light'));
@@ -30,6 +32,7 @@ window.addEventListener('scroll', function() {
       navbar2.classList.remove('opaque');
       line.classList.remove('opaque');
       search.classList.remove('opaque');
+      loginbtn.classList.remove('opaque');
       icons.forEach(icon => icon.classList.remove('opaque'));
 
       const slides = document.querySelectorAll(".slideshow-container .mySlides");
@@ -89,6 +92,7 @@ function showSlidesDesktop() {
   var content = document.querySelectorAll('.navbar2 .content');
   var menutext = document.querySelectorAll('.row .menu-links li a');
   var search = document.querySelector('.search a');
+  var loginbtn = document.querySelector('.loginbtn a');
   var shopbtn = document.querySelector('.shop-btn');
   const icons = document.querySelectorAll('.signedin-icons i');
   for (i = 0; i < slides.length; i++) {
@@ -107,6 +111,7 @@ function showSlidesDesktop() {
   logo.classList.remove('light');
   navbar2.classList.remove('light');
   search.classList.remove('light');
+  loginbtn.classList.remove('light');
   shopbtn.classList.remove('light');
   icons.forEach(icon => icon.classList.remove('light'));
   menutext.forEach(text => text.classList.remove('light'));
@@ -117,6 +122,7 @@ function showSlidesDesktop() {
     logo.classList.add('light');
     navbar2.classList.add('light');
     search.classList.add('light');
+    loginbtn.classList.add('light');
     shopbtn.classList.add('light');
     content.forEach(x => x.classList.add('light'));
     icons.forEach(icon => icon.classList.add('light'));

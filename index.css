@@ -367,6 +367,15 @@ body{
   font-weight: bold;
   display: block;
   padding-left: 20px;
+  transition: color 0.5s ease;
+}
+
+.loginbtn a.light{
+  color: #fff9ef;
+}
+
+.loginbtn a.opaque{
+  color: #fff9ef;
 }
 
 
