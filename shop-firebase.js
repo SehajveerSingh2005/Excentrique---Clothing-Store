@@ -57,7 +57,7 @@ async function ProductGeneration(){
         <a href="product-page.html?id=products/${doc.id}"><img  class="product-img" src="${productData.images[0]}"></a>
         <h2>${productData.name}</h2>
         <p>Rs. ${productData.price}</p>
-        <a href="#" class="addtowishlist-btn"><img src="/icons/heart.png" class="wishlist-icon"></a>
+        <i class="fa-regular fa-heart"></i>
         `;
 
         productTilesContainer.appendChild(productCard);

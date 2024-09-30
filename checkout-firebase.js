@@ -83,7 +83,7 @@ if (user) {
   
      
         cartItem.innerHTML = `
-                <img src="${productData.images[0]}">
+                <a href="product-page.html?id=${cartItemData.productRef}"><img src="${productData.images[0]}"></a>
                 <div class="info">
                     <div>
                         <h3 class="item-name" id="item-name">${productData.name}</h3>
@@ -193,7 +193,7 @@ if (user) {
                   </select>
               </div>
             </div>
-            <img src="${productData.images[0]}">
+            <a href="product-page.html?id=products/${productId}"><img src="${productData.images[0]}"></a>
           </div>
           <div class="btn-container">
             <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>

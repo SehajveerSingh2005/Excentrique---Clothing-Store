@@ -366,7 +366,14 @@ html{
     font-weight: bold;
     display: block;
     padding-left: 20px;
+    transition: color 0.5s ease;
   }
+
+  .loginbtn a.opaque{
+    color: #fff9ef;
+  }
+
+
 .main-container{
     display: flex;
     flex-direction: row;
@@ -686,20 +693,13 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     font-size: 16px;
   }
 
-  .addtowishlist-btn{
+  .product-card i{
     position: absolute;
     right: 5%;
-    height: 16px;
-    width: 16px;
-    text-decoration: none;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .addtowishlist-btn img{
-    height: 16px;
-    width: 16px;
   }
 
 
