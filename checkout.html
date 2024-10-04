@@ -83,23 +83,23 @@
                     <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-between;">
                         <div style="display: flex; flex-direction: column; width: 48%; ">
                             <label for="firstname">First Name</label>
-                            <input type="text" id="firstname" placeholder="First name">
+                            <input type="text" id="firstname" placeholder="First name" required>
                         </div>
                         <div style="display: flex; flex-direction: column; width: 48%;">
                             <label for="lastname">Last Name</label>
-                            <input type="text" id="lastname" placeholder="Last name">
+                            <input type="text" id="lastname" placeholder="Last name" required>
                         </div>
                     </div>
                     
                     <label for="street-address">Street Address</label>
-                    <input type="text" id="street-address-1" placeholder="House Number, Apartment and Street Name">
+                    <input type="text" id="street-address-1" placeholder="House Number, Apartment and Street Name" required>
                     <input type="text" id="street-address-2" placeholder="Landmark, Locality, Road Name or Area Name">
 
                     <label for="city">Town/City</label>
-                    <input type="text" id="city">
+                    <input type="text" id="city" required>
 
                     <label for="state">State</label>
-                    <select id="state">
+                    <select id="state"  required>
                         <option value="andhra-pradesh">Andhra Pradesh</option>
                         <option value="arunachal-pradesh">Arunachal Pradesh</option>
                         <option value="assam">Assam</option>
@@ -139,13 +139,11 @@
 
                     <label for="pincode">Pincode/ZIP</label>
                     <input type="text" id="pincode" name="pincode" placeholder="Enter valid pincode">
-                </form>
             </div>
             <div class="payment-container">
                 <h1 class="title">Payment Methods</h1>
                 <hr class="line">
 
-                <form>
                 <div class="options-container">
                     <label class="radio-container">UPI
                         <input type="radio" checked="checked" name="radio" required>
@@ -191,7 +189,7 @@
                 <p>FREE delivery!</p>
                 <div class="price-checkout-btn-container">
                     <div class="total" id="sub-total-final"></div>
-                    <div class="checkout-btn" id="checkout-btn">Place Order.</div>
+                    <button type="button" class="checkout-btn" id="checkout-btn">Place Order.</button>
                 </div>
             </div>
         </div>

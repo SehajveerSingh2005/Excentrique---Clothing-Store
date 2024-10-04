@@ -121,94 +121,87 @@ if (user) {
     cartsubtotal.textContent = `Rs. ${cartSubTotal}`;
     cartsubtotalfinal.textContent = `Rs. ${cartSubTotal}`;
   }
-  
-  
-  async function RenderCartItemsFromSessionStorage() {
-    const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
-    console.log(cart);
-    const cartContainer = document.getElementById('cart-container');
-    cartContainer.innerHTML = ''; // Clear any previous items
-  
-    let cartTotalMRP = 0;
-    let cartDiscount = 0;
-    let cartSubTotal = 0;
-  
-    if (cart.length === 0) {
-        cartContainer.innerHTML = '<p>No items in cart.</p>';
+
+  document.getElementById("checkout-btn").addEventListener("click", function() {
+    if (validateForm()) {
+        // If the form is valid, save the order details in Firestore
+        placeOrder();
     } else {
-        for(const item of cart){
-          const productId = item.productRef;
-  
-  
-          const productRef = doc(db,productId);
-          const productSnap = await getDoc(productRef);
-          
-          if (!productSnap.exists()) {
-            console.error('Product does not exist for productRef:', productId);
-          }
-    
-          const productData = productSnap.data();
-  
-          if(item.quantity === 1){
-            cartTotalMRP += productData.price;
-          }else{
-            cartTotalMRP += (productData.price * item.quantity);
-          }
-  
-  
-          const cartItem = document.createElement('div');
-          cartItem.classList.add('item');
-  
-          cartItem.innerHTML = `
-          <div class="row">
-            <div class="text">
-              <span class="info">
-                <p id="gender">Men's</p>
-                <p id="color">${productData.colors[0]}</p>
-                <p id="name">${productData.name}</p>
-                <p id="type">${productData.category}</p>
-              </span>
-              <p id="price" class="price">Rs. ${productData.price}</p>
-              <div class="option-container">
-                <label for="size">Size:</label>
-                <select id="size">
-                  <option value="S" ${item.size === 'S' ? 'selected' : ''}>S</option>
-                  <option value="M" ${item.size === 'M' ? 'selected' : ''}>M</option>
-                  <option value="L" ${item.size === 'L' ? 'selected' : ''}>L</option>
-                  <option value="XL" ${item.size === 'XL' ? 'selected' : ''}>XL</option>
-                  <option value="XXL" ${item.size === 'XXL' ? 'selected' : ''}>XXL</option>
-                </select>
-                <label for="qty">Qty:</label>
-                <select id="qty">
-                  <option value="1" ${item.quantity === 1 ? 'selected' : ''}>1</option>
-                  <option value="2" ${item.quantity === 2 ? 'selected' : ''}>2</option>
-                  <option value="3" ${item.quantity === 3 ? 'selected' : ''}>3</option>
-                  <option value="4" ${item.quantity === 4 ? 'selected' : ''}>4</option>
-                  <option value="5" ${item.quantity === 5 ? 'selected' : ''}>5</option>
-                  <option value="6" ${item.quantity === 6 ? 'selected' : ''}>6</option>
-                  <option value="7" ${item.quantity === 7 ? 'selected' : ''}>7</option>
-                  <option value="8" ${item.quantity === 8 ? 'selected' : ''}>8</option>
-                  <option value="9" ${item.quantity === 9 ? 'selected' : ''}>9</option>
-                  <option value="10" ${item.quantity === 10 ? 'selected' : ''}>10</option>
-                  </select>
-              </div>
-            </div>
-            <a href="product-page.html?id=products/${productId}"><img src="${productData.images[0]}"></a>
-          </div>
-          <div class="btn-container">
-            <div class="btn"><i class="fa fa-trash" aria-hidden="true"></i> Remove</div>
-            <div class="btn">Move to Wishlist</div>
-          </div>
-            `;
-  
-        cartContainer.appendChild(cartItem);
-      };
+        alert("Please fill in all required fields correctly.");
     }
-  
-    cartDiscount = cartTotalMRP * 0.2;
-  
-    cartSubTotal = cartTotalMRP - cartDiscount;
-  
-    RenderCartSummary(cartTotalMRP,cartDiscount,cartSubTotal);
-  
-  }
+});
+
+// Function to validate the shipping and payment forms
+function validateForm() {
+    // Get all the form fields
+    const firstName = document.getElementById('firstname').value.trim();
+    const lastName = document.getElementById('lastname').value.trim();
+    const streetAddress1 = document.getElementById('street-address-1').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const state = document.getElementById('state').value.trim();
+    const pincode = document.getElementById('pincode').value.trim();
+    const paymentMethods = document.getElementsByName('radio');
+
+    // Validate required fields
+    if (!firstName || !lastName || !streetAddress1 || !city || !state || !pincode) {
+        return false;
+    }
+
+    // Validate pincode
+    const pincodeRegex = /^[1-9][0-9]{5}$/;
+    if (!pincodeRegex.test(pincode)) {
+        return false;
+    }
+
+    // Check if a payment method is selected
+    let paymentSelected = false;
+    for (let i = 0; i < paymentMethods.length; i++) {
+        if (paymentMethods[i].checked) {
+            paymentSelected = true;
+            break;
+        }
+    }
+
+    if (!paymentSelected) {
+        return false; // No payment method selected
+    }
+
+    // If all validations pass
+    return true;
+}
+
+// Example function to place the order (you can modify it to save details in Firestore)
+function placeOrder() {
+    const firstName = document.getElementById('firstname').value.trim();
+    const lastName = document.getElementById('lastname').value.trim();
+    const address1 = document.getElementById('street-address-1').value.trim();
+    const address2 = document.getElementById('street-address-2').value.trim();
+    const city = document.getElementById('city').value.trim();
+    const state = document.getElementById('state').value.trim();
+    const pincode = document.getElementById('pincode').value.trim();
+    
+    const paymentMethods = document.getElementsByName('radio');
+    let paymentMethod;
+    for (let i = 0; i < paymentMethods.length; i++) {
+        if (paymentMethods[i].checked) {
+            paymentMethod = paymentMethods[i].parentNode.innerText.trim();
+            break;
+        }
+    }
+
+    const orderDetails = {
+        firstName,
+        lastName,
+        address1,
+        address2,
+        city,
+        state,
+        pincode,
+        paymentMethod
+        // Add other details like cart items, etc.
+    };
+
+    // Now save orderDetails to Firestore or your database.
+    console.log("Order placed:", orderDetails);
+    alert("Order placed successfully!");
+}

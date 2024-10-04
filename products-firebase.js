@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import { getFirestore, doc, getDoc,setDoc,Timestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js"; 
+import { getFirestore, doc, getDoc,setDoc,deleteDoc,Timestamp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js"; 
 const firebaseConfig = {
     apiKey: "AIzaSyDJL4cahnMBpAIKfZsBmlme6dwurkOVYq8",
     authDomain: "excentrique-clothing-store.firebaseapp.com",
@@ -263,14 +263,15 @@ async function addToWishlist(productRef, productId) {
             const docSnap = await getDoc(wishlistRef);
 
             if (docSnap.exists()) {
-                alert("Item already in wishlist!");
                 //remove from wishlist
+                await deleteDoc(wishlistRef);
             } else {
                 // New item, add to Firestore
                 await setDoc(wishlistRef, {
                     productRef: productRef,
                     createdAt: new Date().toISOString(),
                 });
+                alert('Added to Wishlist!');
             }
         } else {
             // User is not signed in, save to local storage
@@ -288,5 +289,5 @@ async function addToWishlist(productRef, productId) {
             }
             sessionStorage.setItem("cart", JSON.stringify(cart));
         }
-        alert('Added to Wishlist!');
+
 }

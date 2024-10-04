@@ -90,7 +90,6 @@ async function retrieveOrdersData(userId){
 function initializeWishlistEventHandlers(userId) {
     document.addEventListener('click', async (event) => {
         if (event.target.matches('.wishlist-btn i.fa-heart')) {
-            console.log("clicked");
             
             const wishlistBtn = event.target.closest('.wishlist-btn');
             
@@ -134,16 +133,21 @@ async function RenderWishlistfromFirestore(userId) {
     // Check if the document exists
     if (userDocSnapshot.exists()) {
       // Get the user data
-      const userData = userDocSnapshot.data();
+        const userData = userDocSnapshot.data();
   
-      // Query the wishlist subcollection
-      const q = query(collection(db, 'users', userId, 'wishlist'),orderBy('createdAt','desc'));
+        // Query the wishlist subcollection
+        const q = query(collection(db, 'users', userId, 'wishlist'),orderBy('createdAt','desc'));
   
-      const wishlistContainer = document.getElementById('wishlist-container');
-      // wishlistContainer.innerHTML = '';  // Clear existing content
-  
-      const querySnapshot = await getDocs(q);
-  
+        const wishlistContainer = document.getElementById('wishlist-container');
+        wishlistContainer.innerHTML = '';  // Clear existing content
+        const wishlistdiv = document.getElementById('wishlist');
+        const querySnapshot = await getDocs(q);
+      
+        if (querySnapshot.empty) {
+            wishlistdiv.innerHTML += '<div class="empty-wishlist"><h2>Your Wishlist is empty</h2></div>'
+            return;
+        }
+
       for (const docSnapshot of querySnapshot.docs) {
         const wishlistItemData = docSnapshot.data();
   
