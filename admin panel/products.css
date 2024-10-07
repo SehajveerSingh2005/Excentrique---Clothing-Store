@@ -1,0 +1,277 @@
+html{
+    margin: 0;
+}
+  
+*{
+    margin: 0;
+}
+  
+body{
+    margin: 0;
+    background-color: #fff9ef;
+}
+
+.main-container{
+    display: flex;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    flex-direction: row;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    min-height: 100vh;
+    background-color: #fff9ef;
+    border-right: 1px solid #333;
+}
+
+.logo{
+    padding-top: 25px;
+    font-size: 40px;
+    font-family: "Noto Serif Display";
+    text-align: center;
+}
+
+.logo a{
+    text-decoration: none;
+    color: #333;
+}
+
+.header{
+    font-family: "Noto Sans mono";
+    padding-left: 20px;
+    margin-top: 25px;
+    padding-bottom: 10px;
+    color: #3f3f3f;
+}
+
+.menu{
+    align-self: center;
+    list-style: none;
+    padding: 0;
+    width: 90%;
+}
+
+.menu li{
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    line-height: 35px;
+    margin-bottom: 8px;
+    background-color: transparent;
+    transition:color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu li span{
+    margin-right: 10px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: #333;
+    font-family: "Noto Sans mono";
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.menu li:hover{
+    background-color: #333;
+    color: #fff9ef;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.menu li.active{
+    background-color: #333;
+    color: #fff9ef;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dashboard-container{
+    margin: 0;
+    width: calc(100% - 320px);
+}
+
+.heading-bar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.heading{
+    font-family: "Noto Sans mono";
+    font-size: 32px;
+    padding: 30px 0;
+}
+
+.heading-bar i{
+    font-size: 30px;
+    color: #333;
+}
+
+.line{
+    color: #333;
+}
+
+.products-container{
+    margin: 0;
+    width: calc(100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.products-header{
+    width: calc(100%-80px);
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 40px;
+    font-family: "Noto Sans mono";
+    border-bottom: 1px solid #333;
+}
+
+.products-header h1{
+    font-size: 32px;
+    font-weight: normal;
+}
+.products-header button{
+    background-color: #333;
+    color: #fff9ef;
+    padding: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    font-family: "Noto Sans mono";
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.products-header button:hover{
+    color: #333;
+    background-color: #fff9ef;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+
+table{
+    text-align: left;
+    width: 100%;
+    font-family: "Noto Sans mono";
+    padding-left: 20px;
+    padding-right: 20px;
+} 
+
+th,td{
+    border-bottom: 1px solid #333;
+}
+
+  .product{
+    display: flex;
+    width: 100%;
+    padding: 0px 40px;
+    align-items: center;
+    font-family: "Noto Sans mono";
+    color: #333;
+    border-bottom: 1px solid #a6a6a6;
+  }
+
+  .info{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 18px;
+  }
+
+  .productname-td{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .product-img{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 2.5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+.productname{
+    margin-left: 10px;
+}
+
+.overlay{
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+.modal{
+    display: none;
+    background-color: #fff9ef;
+    position: absolute;
+    z-index: 2;
+    left: 60%;
+    top: 55%;
+    transform: translate(-50%,-50%);
+    width: 70%;
+    height: 60%;
+    border: 1px solid #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.modal-header{
+    font-family: "Noto Sans mono";
+    font-size: 22px;
+}
+
+.modal form{
+    display: flex;
+    flex-direction: column;
+    font-family: "Noto Sans mono";
+    margin-top: 20px;
+    width: 50%;
+}
+
+.modal form label{
+    font-size: 14px;
+}
+
+.modal form input{
+    font-size: 18px;
+    padding: 6px;
+}
+
+.modal form textarea{
+    height: 100px;
+}
+
+.modal form select{
+    font-size: 18px;
+    padding: 6px;
+}
+
+.modal form option{
+    font-size: 14px;
+}
+
+.modal label::after{
+    content: "*";
+    position: absolute;
+    color: red;
+    margin-left: 5px;
+    font-size: 16px;
+}
+
+

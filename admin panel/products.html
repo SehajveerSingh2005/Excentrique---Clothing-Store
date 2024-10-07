@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excentrique | Admin Dashboard</title>
+    <link rel="stylesheet" href="products.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="main-container">
+        <div class="sidebar">
+            <h3 class="logo"><a href="/index.html">Excentrique.</a></h3>
+
+            <p class="header">Admin Menu</p>
+            <ul class="menu">
+                <a href="dashboard.html"><li><span class="material-symbols-outlined">dashboard</span>Dashboard</li></a>
+                <a href="orders.html"><li><span class="material-symbols-outlined">shopping_cart</span>Orders</li></a>
+                <a href="products.html"><li class="active"><span class="material-symbols-outlined">inventory_2</span>Products</li></a>
+                <a href="customers.html"><li><span class="material-symbols-outlined">group</span>Customers</li></a>
+                <a href="analytics.html"><li><span class="material-symbols-outlined">monitoring</span>Analytics</li></a>
+                <a href="discounts.html"><li><span class="material-symbols-outlined">savings</span>Discounts</li></a>
+            </ul>
+        </div>
+        <div class="dashboard-container">
+            <div class="heading-bar">
+                <p class="heading">Good Morning, Sehajveer Singh!</p>
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <hr class="line">
+
+            <div class="modal" id="modal">
+                <p class="modal-header">Add new product</p>
+                <form>
+                    <label for="pname">Product Name</label>
+                    <input type="text" name="pname" id="pname" required>
+
+                    <label for="pcolor">Color</label>
+                    <input type="text" name="pcolor" id="pcolor" required>
+
+                    <label for="pcat">Category</label>
+                    <select id="pcat" required>
+                        <option>oversized t-shirt</option>
+                        <option>shirt</option>
+                        <option>hoodie</option>
+                        <option>shacket</option>
+                        <option>long sleeves</option>
+                        <option>sweatshirt</option>
+                        <option>co-ord set</option>
+                        <option>cargo pants</option>
+                        <option>denim pants</option>
+                        <option>joggers</option>
+                        <option>shorts</option>
+                        <option>boxers</option>
+                    </select>
+
+                    <label for="pdesc">Description</label>
+                    <textarea name="pdesc" id="pdesc" required></textarea>
+
+                    <label for="pprice">Price</label>
+                    <input type="number" id="pprice" name="pprice" required>
+
+                    <label for="pstock">Stock</label>
+                    <input type="number" name="pstock" id="pstock" required>
+
+                    <label for="pimages">Images</label>
+                    <input type="file" id="piamges" name="pimages" accept="image/*" multiple required>
+                </form>
+            </div>
+
+
+            <div class="products-container">
+                <div class="products-header">
+                    <h1>Products List</h1>
+                    <button type="button" id="modal-btn">+ Add Product</button>
+                </div>
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="products-admin.js"></script>
+<script type="module" src="products-admin-firebase.js"></script>
+<script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+</html>
