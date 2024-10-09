@@ -384,7 +384,7 @@ html{
 .filter-container{
     position: fixed;
     width: 20vw;
-    margin-top: 40px;
+    margin-top: 0px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -406,8 +406,9 @@ html{
 }
 
 .title{
-    font-size: 26px;
+    font-size: 32px;
     font-family: "Noto Serif Display";
+    text-align: center;
     font-weight: 700;
     padding: 20px;
 }
@@ -416,12 +417,16 @@ html{
     border: 1px solid #333;
 }
 
+.filter-border{
+  filter: drop-shadow(0px 2px 2px #333);
+}
+
 .filterForm{
     display: flex;
     flex-direction: column;
     position: relative;
     width: 80%;
-    height: 100%;
+    height: 500px;
     padding: 20px;
     overflow: scroll;
     margin-bottom: 50px;

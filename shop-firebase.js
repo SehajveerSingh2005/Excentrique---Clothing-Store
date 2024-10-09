@@ -79,7 +79,7 @@ async function addToWishlist(productRef, productId) {
 //retrieve products from product collection function
 
 async function ProductGeneration() {
-    const q = query(collection(db, 'products'), where("category", "==", "oversized t-shirt"));
+    const q = query(collection(db, 'products'));
     const productTilesContainer = document.getElementById('product-tiles-container');
     const querySnapshot = await getDocs(q);
 
