@@ -206,72 +206,158 @@ th,td{
     margin-left: 10px;
 }
 
+.productname a{
+    text-decoration: none;
+    color: #333;
+}
+
 .overlay{
-    display: none;
+    display: block;
     position: absolute;
     height: 100%;
     width: 100%;
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.24);
+    transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
-.modal{
-    display: none;
+.overlay{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Adjust the modal styles */
+.modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     background-color: #fff9ef;
     position: absolute;
     z-index: 2;
-    left: 60%;
-    top: 55%;
-    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 70%;
-    height: 60%;
+    height: auto; /* Allow dynamic height */
+    max-height: 90vh; /* Set max height for modal */
+    overflow-y: auto; /* Add scroll if content exceeds modal height */
     border: 1px solid #333;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
-    padding: 16px;
+    padding: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.modal{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-left{
+    width: 48%;
+    padding: 32px;
+}
+
+/* Adjust the form wrapper */
+.modal form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: "Noto Sans mono";
 }
 
 .modal-header{
-    font-family: "Noto Sans mono";
-    font-size: 22px;
+    font-size: 32px;
+    font-family: "Noto Serif Display";
+    font-weight: bold;
+
 }
 
-.modal form{
-    display: flex;
-    flex-direction: column;
-    font-family: "Noto Sans mono";
-    margin-top: 20px;
-    width: 50%;
+.modal-line{
+    border: 1px solid #333;
+    width: 40%;
+    margin-bottom: 20px;
 }
 
-.modal form label{
+/* Adjust form elements */
+.modal form label {
     font-size: 14px;
+    margin-bottom: 5px;
 }
 
 .modal form input{
-    font-size: 18px;
+    font-size: 16px;
     padding: 6px;
+    background-color: #fff9ef;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .modal form textarea{
-    height: 100px;
+    height: 50px;
+    max-height: 100px;
+    width: auto;
+    max-width: 99%;
+    background-color: #fff9ef;
+    border: 2px solid #333;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .modal form select{
-    font-size: 18px;
-    padding: 6px;
-}
-
-.modal form option{
-    font-size: 14px;
-}
-
-.modal label::after{
-    content: "*";
-    position: absolute;
-    color: red;
-    margin-left: 5px;
     font-size: 16px;
+    padding: 8px;
+    border: 2px solid #333;
+    background-color: #fff9ef;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
+.add-btn{
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff9ef;
+    width: 160px;
+    padding: 16px;
+    border-radius: 10px;
+    transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+.add-btn:hover{
+    background-color: #fff9ef;
+    color: #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+    .modal form {
+        flex-direction: column; /* Stack form columns on small screens */
+    }
+
+    .form-left,
+    .form-right {
+        width: 100%; /* Full width for mobile view */
+    }
+}
+
+.modal-right{
+    width: 47%;
+    overflow: hidden;
+}
+
+.modal-right img{
+    height: 100%;
+    object-fit: cover;
+}

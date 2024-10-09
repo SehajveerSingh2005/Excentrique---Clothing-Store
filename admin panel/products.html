@@ -41,42 +41,50 @@
             <hr class="line">
 
             <div class="modal" id="modal">
-                <p class="modal-header">Add new product</p>
-                <form>
-                    <label for="pname">Product Name</label>
-                    <input type="text" name="pname" id="pname" required>
+                <div class="modal-left">
+                    <p class="modal-header">Add some cool stuff.</p>
+                    <hr class="modal-line">
+                    <form>
+                        <label for="pname">Product Name</label>
+                        <input type="text" name="pname" id="pname" required>
 
-                    <label for="pcolor">Color</label>
-                    <input type="text" name="pcolor" id="pcolor" required>
+                        <label for="pcolor">Color</label>
+                        <input type="text" name="pcolor" id="pcolor" required>
 
-                    <label for="pcat">Category</label>
-                    <select id="pcat" required>
-                        <option>oversized t-shirt</option>
-                        <option>shirt</option>
-                        <option>hoodie</option>
-                        <option>shacket</option>
-                        <option>long sleeves</option>
-                        <option>sweatshirt</option>
-                        <option>co-ord set</option>
-                        <option>cargo pants</option>
-                        <option>denim pants</option>
-                        <option>joggers</option>
-                        <option>shorts</option>
-                        <option>boxers</option>
-                    </select>
+                        <label for="pcat">Category</label>
+                        <select id="pcat" required>
+                            <option>oversized t-shirt</option>
+                            <option>shirt</option>
+                            <option>hoodie</option>
+                            <option>shacket</option>
+                            <option>long sleeves</option>
+                            <option>sweatshirt</option>
+                            <option>co-ord set</option>
+                            <option>cargo pants</option>
+                            <option>denim pants</option>
+                            <option>joggers</option>
+                            <option>shorts</option>
+                            <option>boxers</option>
+                        </select>
 
-                    <label for="pdesc">Description</label>
-                    <textarea name="pdesc" id="pdesc" required></textarea>
+                        <label for="pdesc">Description</label>
+                        <textarea name="pdesc" id="pdesc" required></textarea>
 
-                    <label for="pprice">Price</label>
-                    <input type="number" id="pprice" name="pprice" required>
+                        <label for="pprice">Price</label>
+                        <input type="number" id="pprice" name="pprice" required>
 
-                    <label for="pstock">Stock</label>
-                    <input type="number" name="pstock" id="pstock" required>
+                        <label for="pstock">Stock</label>
+                        <input type="number" name="pstock" id="pstock" required>
 
-                    <label for="pimages">Images</label>
-                    <input type="file" id="piamges" name="pimages" accept="image/*" multiple required>
-                </form>
+                        <label for="pimages">Images</label>
+                        <input type="text" name="pimages" id="pimages" placeholder="enter image urls separated by commas (,)">
+
+                        <button type="button" class="add-btn" id="submit-btn">Add Product</button>
+                    </form>
+                </div>
+                <div class="modal-right">
+                    <img src="/banners/tshirt on railing portrait.png" class="modal-banner">
+                </div>
             </div>
 
 
