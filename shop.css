@@ -70,8 +70,7 @@ html{
     left: 50%;
     transform: translate(-50%,-50%);
     line-height: 0;
-    font-family: "Noto Serif Display", serif;
-    font-optical-sizing: auto;
+    font-family: "Noto Serif Display";
     font-weight: 900;
     transition:color 0.5s ease, font-size 0.5s ease;
   
@@ -394,6 +393,7 @@ html{
     transform: translateX(-100%);
     transition: transform 0.5s ease;
     font-family: "Noto Sans mono";
+    /* border-right: 2px solid #333; */
 }
 
 .filterForm::-webkit-scrollbar {
@@ -409,7 +409,7 @@ html{
     font-size: 32px;
     font-family: "Noto Serif Display";
     text-align: center;
-    font-weight: 700;
+    font-weight: bold;
     padding: 20px;
 }
 
@@ -435,6 +435,10 @@ html{
 .filterForm label {
     margin-top: 10px;
     font-weight: bold;
+}
+
+.filter-header{
+  font-size: 20px;
 }
 
 .filterForm div {
@@ -487,12 +491,13 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     color: #333;
     border-radius: 2.5px;
     margin: 10px;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease,box-shadow 0.2s ease;
 }
 
 .submit-filter-btn:hover, .submit-filter-btn:active{
     background-color: #333;
     color: #fff9ef;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .right-container{
@@ -520,7 +525,7 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
   
   .heading h1{
     font-family: "Noto Serif Display";
-    font-weight: bold;
+    font-weight: 900;
     font-size: 40px;
     padding-left: 50px;
     padding-top: 10px;
@@ -545,23 +550,26 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
 .filter-button{
     background-color: #fff9ef;
     padding: 10px;
+    font-size: 14px;
     width: 80px;
     font-family: "Noto Serif Display";
     border-radius: 2.5px;
     border: 2px solid #333;
     text-align: center;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease,box-shadow 0.2s ease;
 }
 
 .filter-button:hover, .filter-button:active{
     color: #fff9ef;
     background-color: #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .click{
     color: #fff9ef;
     background-color: #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 
@@ -570,20 +578,21 @@ input[type="checkbox"]:checked + .custom-checkbox::after {
     width: 100px;
     display: flex;
     background-color: #fff9ef;
-    font-size: 16px;
+    font-size: 14px;
     font-family: "Noto Serif Display";
     flex-direction: row;
     justify-content: space-evenly;
     border: 2px solid #333;
     border-radius: 2.5px;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease,box-shadow 0.2s ease;
 }
 
 
 .sort-btn:hover, .sort-btn:active{
     color: #fff9ef;
     background-color: #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .sort-dropdown{

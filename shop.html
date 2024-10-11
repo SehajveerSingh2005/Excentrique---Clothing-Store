@@ -12,7 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Chonburi&family=Kumar+One&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar">
@@ -46,7 +47,7 @@
                     <header>TOP</header>
                     <ul class="menu-links">
                       <li><a href="">all</a></li>
-                      <li><a href="">oversized t-shirts</a></li>
+                      <li><a href="/shop.html?color=black&category=oversized+t-shirt">oversized t-shirts</a></li>
                       <li><a href="">shirts</a></li>
                       <li><a href="">hoodies</a></li>
                       <li><a href="">shackets</a></li>
@@ -134,112 +135,155 @@
             <span class="title">FILTERS</span>
             <img src="/misc/—Pngtree—horizontal line divider black decorative_15620536.png" class="filter-border">
             <form id="filterForm" class="filterForm" onsubmit="applyFilters(); return false;">
-                <label>Products:</label>
+                <label class="filter-header">Products:</label>
                 <div>
-                    <input type="checkbox" id="product-all" name="product" value="product-all">
+                    <input type="checkbox" id="product-all" name="product" value="product-all" class="product-filter">
                     <label for="product-all" class="custom-checkbox"></label>
                     <label for="product-all" class="custom-label">All</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="t-shirts" name="product" value="t-shirt">
+                    <input type="checkbox" id="t-shirts" name="product" value="oversized t-shirt" class="product-filter">
                     <label for="t-shirts" class="custom-checkbox"></label>
                     <label for="t-shirts" class="custom-label">T-Shirts</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="shirts" name="product" value="shirt">
+                    <input type="checkbox" id="shirts" name="product" value="shirt" class="product-filter">
                     <label for="shirts" class="custom-checkbox"></label>
                     <label for="shirts" class="custom-label">Shirts</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="cargos" name="product" value="cargos">
+                    <input type="checkbox" id="shackets" name="product" value="shacket" class="product-filter">
+                    <label for="shackets" class="custom-checkbox"></label>
+                    <label for="shackets" class="custom-label">Shackets</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="long sleeves" name="product" value="long sleeves" class="product-filter">
+                    <label for="long sleeves" class="custom-checkbox"></label>
+                    <label for="long sleeves" class="custom-label">Long sleeves</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="sweatshirts" name="product" value="sweatshirt" class="product-filter">
+                    <label for="sweatshirts" class="custom-checkbox"></label>
+                    <label for="sweatshirts" class="custom-label">Sweatshirts</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="hoodies" name="product" value="hoodies" class="product-filter">
+                  <label for="hoodies" class="custom-checkbox"></label>
+                  <label for="hoodies" class="custom-label">Hoodies</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="co-ord sets" name="product" value="co-ord set" class="product-filter">
+                  <label for="co-ord sets" class="custom-checkbox"></label>
+                  <label for="co-ord sets" class="custom-label">Co-ord Sets</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="cargos" name="product" value="cargos" class="product-filter">
                     <label for="cargos" class="custom-checkbox"></label>
                     <label for="cargos" class="custom-label">Cargo Pants</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="jeans" name="product" value="jeans">
-                    <label for="jeans" class="custom-checkbox"></label>
-                    <label for="jeans" class="custom-label">Jeans</label>
+                    <input type="checkbox" id="denim pants" name="product" value="denim pants" class="product-filter">
+                    <label for="denim pants" class="custom-checkbox"></label>
+                    <label for="denim pants" class="custom-label">Denim Pants</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="hoodies" name="product" value="hoodies">
-                    <label for="hoodies" class="custom-checkbox"></label>
-                    <label for="hoodies" class="custom-label">Hoodies</label>
+                    <input type="checkbox" id="trouser pants" name="product" value="trouser pants" class="product-filter">
+                    <label for="trouser pants" class="custom-checkbox"></label>
+                    <label for="trouser pants" class="custom-label">Trouser Pants</label>
                 </div>
-                <label>Size:</label>
                 <div>
-                    <input type="checkbox" id="size-all" name="size" value="size-all">
+                    <input type="checkbox" id="joggers" name="product" value="joggers" class="product-filter">
+                    <label for="joggers" class="custom-checkbox"></label>
+                    <label for="joggers" class="custom-label">Joggers</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="shorts" name="product" value="shorts" class="product-filter">
+                    <label for="shorts" class="custom-checkbox"></label>
+                    <label for="shorts" class="custom-label">Shorts</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="boxers" name="product" value="boxers" class="product-filter">
+                    <label for="boxers" class="custom-checkbox"></label>
+                    <label for="boxers" class="custom-label">Boxers</label>
+                </div>
+                <label class="filter-header">Size:</label>
+                <div>
+                    <input type="checkbox" id="size-all" name="size" value="size-all" class="size-filter">
                     <label for="size-all" class="custom-checkbox"></label>
                     <label for="size-all" class="custom-label">All</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="size-s" name="size" value="s">
+                    <input type="checkbox" id="size-s" name="size" value="S" class="size-filter">
                     <label for="size-s" class="custom-checkbox"></label>
                     <label for="size-s" class="custom-label">S</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="size-m" name="size" value="m">
+                    <input type="checkbox" id="size-m" name="size" value="M" class="size-filter">
                     <label for="size-m" class="custom-checkbox"></label>
                     <label for="size-m" class="custom-label">M</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="size-l" name="size" value="l">
+                    <input type="checkbox" id="size-l" name="size" value="L" class="size-filter">
                     <label for="size-l" class="custom-checkbox"></label>
                     <label for="size-l" class="custom-label">L</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="size-xl" name="size" value="xl">
+                    <input type="checkbox" id="size-xl" name="size" value="XL" class="size-filter">
                     <label for="size-xl" class="custom-checkbox"></label>
                     <label for="size-xl" class="custom-label">XL</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="size-xxl" name="size" value="xxl">
+                    <input type="checkbox" id="size-xxl" name="size" value="XXL" class="size-filter">
                     <label for="size-xxl" class="custom-checkbox"></label>
                     <label for="size-xxl" class="custom-label">XXL</label>
                 </div>
         
-                <label>Color:</label>
+                <label class="filter-header">Color:</label>
                 <div>
-                    <input type="checkbox" id="color-all" name="color" value="color-all">
+                    <input type="checkbox" id="color-all" name="color" value="color-all" class="color-filter">
                     <label for="color-all" class="custom-checkbox"></label>
                     <label for="color-all" class="custom-label">All</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-red" name="color" value="red">
+                    <input type="checkbox" id="color-red" name="color" value="red" class="color-filter">
                     <label for="color-red" class="custom-checkbox"></label>
                     <label for="color-red" class="custom-label">Red</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-blue" name="color" value="blue">
+                    <input type="checkbox" id="color-blue" name="color" value="blue" class="color-filter">
                     <label for="color-blue" class="custom-checkbox"></label>
                     <label for="color-blue" class="custom-label">Blue</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-green" name="color" value="green">
+                    <input type="checkbox" id="color-green" name="color" value="green" class="color-filter">
                     <label for="color-green" class="custom-checkbox"></label>
                     <label for="color-green" class="custom-label">Green</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-purple" name="color" value="purple">
+                    <input type="checkbox" id="color-purple" name="color" value="purple" class="color-filter">
                     <label for="color-purple" class="custom-checkbox"></label>
                     <label for="color-purple" class="custom-label">Purple</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-black" name="color" value="black">
+                    <input type="checkbox" id="color-black" name="color" value="black" class="color-filter">
                     <label for="color-black" class="custom-checkbox"></label>
                     <label for="color-black" class="custom-label">Black</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-white" name="color" value="white">
+                    <input type="checkbox" id="color-white" name="color" value="white" class="color-filter">
                     <label for="color-white" class="custom-checkbox"></label>
                     <label for="color-white" class="custom-label">White</label>
                 </div>
                 <div>
-                    <input type="checkbox" id="color-beige" name="color" value="beige">
+                    <input type="checkbox" id="color-beige" name="color" value="beige" class="color-filter">
                     <label for="color-beige" class="custom-checkbox"></label>
                     <label for="color-beige" class="custom-label">Beige</label>
                 </div>
-
-                <button type="submit" class="submit-filter-btn">Apply Filters</button>
+                <div>
+                    <input type="checkbox" id="color-off-white" name="color" value="off-white" class="color-filter">
+                    <label for="color-off-white" class="custom-checkbox"></label>
+                    <label for="color-off-white" class="custom-label">Off-White</label>
+                </div>
             </form>
         </div>
         

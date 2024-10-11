@@ -33,10 +33,6 @@ else{
   }
 })
 
-document.addEventListener('DOMContentLoaded', () => {
-    ProductGeneration();
-});
-
 // Add to wishlist function
 async function addToWishlist(productRef, productId) {
     const user = auth.currentUser;
@@ -75,13 +71,173 @@ async function addToWishlist(productRef, productId) {
 
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    const filtersFromURL = getFiltersFromURL();
+    selectedFilters = filtersFromURL || { category: [], color: [], size: [] };
+    applyFiltersOnPageLoad(selectedFilters);
+});
 
-//retrieve products from product collection function
+// Structure for multiple filters
+let selectedFilters = {
+    category: [],
+    color: [],
+    size: []
+};
 
-async function ProductGeneration() {
-    const q = query(collection(db, 'products'));
+// Add filters to the URL
+function updateURLWithFilters() {
+    const url = new URL(window.location);
+
+    if (selectedFilters.category.length > 0) {
+        url.searchParams.set('category', selectedFilters.category.join(','));
+    } else {
+        url.searchParams.delete('category');
+    }
+
+    if (selectedFilters.color.length > 0) {
+        url.searchParams.set('color', selectedFilters.color.join(','));
+    } else {
+        url.searchParams.delete('color');
+    }
+
+    if (selectedFilters.size.length > 0) {
+        url.searchParams.set('size', selectedFilters.size.join(','));
+    } else {
+        url.searchParams.delete('size');
+    }
+
+    window.history.pushState({}, '', url);
+}
+
+// Get filters from the URL
+function getFiltersFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const categoryFilters = urlParams.get('category') ? urlParams.get('category').split(',') : [];
+    const colorFilters = urlParams.get('color') ? urlParams.get('color').split(',') : [];
+    const sizeFilters = urlParams.get('size') ? urlParams.get('size').split(',') : [];
+
+    return {
+        category: categoryFilters,
+        color: colorFilters,
+        size: sizeFilters
+    };
+}
+
+// Apply filters on page load
+function applyFiltersOnPageLoad(filters) {
+    const categoryFilters = document.querySelectorAll('.product-filter');
+    const colorFilters = document.querySelectorAll('.color-filter');
+    const sizeFilters = document.querySelectorAll('.size-filter');
+
+    categoryFilters.forEach((filter) => {
+        if (filters.category.includes(filter.value)) {
+            filter.checked = true;
+        }
+    });
+
+    colorFilters.forEach((filter) => {
+        if (filters.color.includes(filter.value)) {
+            filter.checked = true;
+        }
+    });
+
+    sizeFilters.forEach((filter) => {
+        if (filters.size.includes(filter.value)) {
+            filter.checked = true;
+        }
+    });
+
+    // Call FilterProducts with the filters
+    FilterProducts(filters);
+}
+
+// Event listener for category filters
+const categoryFilters = document.querySelectorAll('.product-filter');
+
+categoryFilters.forEach((filter) => {
+    filter.addEventListener('change', () => {
+        selectedFilters.category = []; // Reset category filters
+
+        categoryFilters.forEach((filter) => {
+            if (filter.checked) {
+                selectedFilters.category.push(filter.value);
+            }
+        });
+
+        // Update URL and apply filters
+        updateURLWithFilters();
+        FilterProducts(selectedFilters);
+    });
+});
+
+// Event listener for color filters
+const colorFilters = document.querySelectorAll('.color-filter');
+
+colorFilters.forEach((filter) => {
+    filter.addEventListener('change', () => {
+        selectedFilters.color = []; // Reset color filters
+
+        colorFilters.forEach((filter) => {
+            if (filter.checked) {
+                selectedFilters.color.push(filter.value);
+            }
+        });
+
+        // Update URL and apply filters
+        updateURLWithFilters();
+        FilterProducts(selectedFilters);
+    });
+});
+
+// Event listener for size filters
+const sizeFilters = document.querySelectorAll('.size-filter');
+
+sizeFilters.forEach((filter) => {
+    filter.addEventListener('change', () => {
+        selectedFilters.size = []; // Reset size filters
+
+        sizeFilters.forEach((filter) => {
+            if (filter.checked) {
+                selectedFilters.size.push(filter.value);
+            }
+        });
+
+        // Update URL and apply filters
+        updateURLWithFilters();
+        FilterProducts(selectedFilters);
+    });
+});
+
+//function to filter products and call ProductGeneration function
+async function FilterProducts(filters) {
+    let productQuery = query(collection(db, 'products'));
+
+    // Apply category filter
+    if (filters.category.length > 0) {
+        productQuery = query(productQuery, where('category', 'in', filters.category));
+    }
+
+    // Apply color filter using array-contains
+    if (filters.color.length > 0) {
+        const colorQueries = filters.color.map(color => where('colors', 'array-contains', color));
+        productQuery = query(productQuery, ...colorQueries);
+    }
+
+    // Apply size filter using array-contains
+    if (filters.size.length > 0) {
+        const sizeQueries = filters.size.map(size => where('sizes', 'array-contains', size));
+        productQuery = query(productQuery, ...sizeQueries);
+    }
+
+    const querySnapshot = await getDocs(productQuery);
+    ProductGeneration(querySnapshot);
+}
+
+// function to render products on the page
+function ProductGeneration(querySnapshot) {
     const productTilesContainer = document.getElementById('product-tiles-container');
-    const querySnapshot = await getDocs(q);
+    productTilesContainer.innerHTML = ''; // Clear existing products
 
     querySnapshot.forEach((doc) => {
         const productData = doc.data();
@@ -91,14 +247,14 @@ async function ProductGeneration() {
         // Create the heart icon
         const heartIcon = document.createElement('i');
         heartIcon.classList.add('fa-regular', 'fa-heart');
-        
+
         // Check if the product is already in the wishlist
-        checkWishlistStatus(doc.id, heartIcon); // Function to check wishlist status
+        checkWishlistStatus(doc.id, heartIcon); 
 
         heartIcon.addEventListener('click', async () => {
-            await addToWishlist(`products/${doc.id}`, doc.id);  // Use your wishlist function
+            await addToWishlist(`products/${doc.id}`, doc.id);
             heartIcon.classList.toggle('fa-solid');
-            heartIcon.classList.toggle('red'); // Toggle between regular and solid heart icon
+            heartIcon.classList.toggle('red');
         });
 
         productCard.innerHTML = `
@@ -109,11 +265,11 @@ async function ProductGeneration() {
             <p>Rs. ${productData.price}</p>
         `;
 
-        // Append the heart icon to the product card
         productCard.appendChild(heartIcon);
         productTilesContainer.appendChild(productCard);
     });
 }
+
 
 // Function to check if the product is in the wishlist
 async function checkWishlistStatus(productId, heartIcon) {
@@ -135,3 +291,4 @@ async function checkWishlistStatus(productId, heartIcon) {
         }
     }
 }
+
