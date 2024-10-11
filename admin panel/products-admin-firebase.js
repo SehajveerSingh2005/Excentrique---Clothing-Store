@@ -75,6 +75,7 @@ submitbtn.addEventListener("click", async function(event) {
 
     const productName = document.getElementById('pname').value;
     const productColor = document.getElementById('pcolor').value;
+    const productGender = document.getElementById('pgender').value;
     const productCategory = document.getElementById('pcat').value;
     const productDescription = document.getElementById('pdesc').value;
     const productPrice = document.getElementById('pprice').value;
@@ -82,7 +83,7 @@ submitbtn.addEventListener("click", async function(event) {
     const productImages = document.getElementById('pimages').value; // input is a string of image URLs
 
     // Basic validation (ensure all required fields are filled)
-    if (!productName || !productColor || !productCategory || !productDescription || !productPrice || !productStock || !productImages) {
+    if (!productName || !productColor || !productGender || !productCategory || !productDescription || !productPrice || !productStock || !productImages) {
         alert('Please fill in all fields');
         return;
     }
@@ -92,9 +93,10 @@ submitbtn.addEventListener("click", async function(event) {
 
     try {
         // Add the product data along with the array of image URLs to Firestore
-        const docRef = await addDoc(collection(db, 'products'), {
+        await addDoc(collection(db, 'products'), {
             name: productName,
             colors: [productColor],
+            gender: productGender,
             category: productCategory,
             desp: productDescription,
             price: productPrice,

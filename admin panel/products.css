@@ -243,9 +243,9 @@ th,td{
     top: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    height: auto; /* Allow dynamic height */
-    max-height: 90vh; /* Set max height for modal */
-    overflow-y: auto; /* Add scroll if content exceeds modal height */
+    height: auto;
+    max-height: 95vh;
+    overflow-y: hidden;
     border: 1px solid #333;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
