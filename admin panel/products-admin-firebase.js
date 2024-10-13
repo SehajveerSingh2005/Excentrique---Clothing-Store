@@ -80,6 +80,7 @@ submitbtn.addEventListener("click", async function(event) {
     const productDescription = document.getElementById('pdesc').value;
     const productPrice = document.getElementById('pprice').value;
     const productStock = document.getElementById('pstock').value;
+    const productURL = document.getElementById('pUrl').value;
     const productNumImages = document.getElementById('pnumimages').value; // input is a string of image URLs
 
     // Basic validation (ensure all required fields are filled)
@@ -89,22 +90,11 @@ submitbtn.addEventListener("click", async function(event) {
     }
 
     // Automatically generate image URLs
-    const toplist = ['t-shirt','shirt','hoodie','shacket','sweatshirt','co-ord set']; 
-    if (productCategory in toplist){
-        const baseUrl = `/${productCategory}s/${productName}/`;
-        const imageUrlsArray = [];
+    const baseUrl = `/${productURL}/`;
+    const imageUrlsArray = [];
     
-        for (let i = 1; i <= numImages; i++) {
-            imageUrlsArray.push(`${baseUrl}${i}.jpg`);
-        }
-    }
-    else{
-        const baseUrl = `/${productCategory}/${productName}/`;
-        const imageUrlsArray = [];
-    
-        for (let i = 1; i <= numImages; i++) {
-            imageUrlsArray.push(`${baseUrl}${i}.jpg`);
-        }
+    for (let i = 1; i <= productNumImages; i++) {
+        imageUrlsArray.push(`${baseUrl}${i}.jpg`);
     }
 
     try {
