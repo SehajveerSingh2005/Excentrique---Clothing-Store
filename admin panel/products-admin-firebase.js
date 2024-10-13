@@ -80,16 +80,32 @@ submitbtn.addEventListener("click", async function(event) {
     const productDescription = document.getElementById('pdesc').value;
     const productPrice = document.getElementById('pprice').value;
     const productStock = document.getElementById('pstock').value;
-    const productImages = document.getElementById('pimages').value; // input is a string of image URLs
+    const productNumImages = document.getElementById('pnumimages').value; // input is a string of image URLs
 
     // Basic validation (ensure all required fields are filled)
-    if (!productName || !productColor || !productGender || !productCategory || !productDescription || !productPrice || !productStock || !productImages) {
+    if (!productName || !productColor || !productGender || !productCategory || !productDescription || !productPrice || !productStock || !productNumImages) {
         alert('Please fill in all fields');
         return;
     }
 
-    // Split the productImages string by commas into an array
-    const imageUrlsArray = productImages.split(',').map(image => image.trim());
+    // Automatically generate image URLs
+    const toplist = ['t-shirt','shirt','hoodie','shacket','sweatshirt','co-ord set']; 
+    if (productCategory in toplist){
+        const baseUrl = `/${productCategory}s/${productName}/`;
+        const imageUrlsArray = [];
+    
+        for (let i = 1; i <= numImages; i++) {
+            imageUrlsArray.push(`${baseUrl}${i}.jpg`);
+        }
+    }
+    else{
+        const baseUrl = `/${productCategory}/${productName}/`;
+        const imageUrlsArray = [];
+    
+        for (let i = 1; i <= numImages; i++) {
+            imageUrlsArray.push(`${baseUrl}${i}.jpg`);
+        }
+    }
 
     try {
         // Add the product data along with the array of image URLs to Firestore

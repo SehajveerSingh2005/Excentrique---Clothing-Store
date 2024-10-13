@@ -21,17 +21,14 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth,(user)=>{
 
-const signedinIcons = document.querySelectorAll('.signedin-icons');
 const profilebtn = document.getElementById('profile-btn')
 const loginbtn = document.getElementById('loginbtn');
 
 if (user) {
-    console.log("logged in");
     profilebtn.style.display = 'block';
     loginbtn.style.display = 'none';
 }
 else{
-    console.log("Nah");
     profilebtn.style.display = 'none'
     loginbtn.style.display = 'block';
   }

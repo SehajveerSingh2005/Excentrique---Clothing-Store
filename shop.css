@@ -355,6 +355,10 @@ html{
   .signedin-icons i.opaque{
     color: #fff9ef;
   }
+
+  .loginbtn{
+    display: none;
+  }
   
   .loginbtn a{
     color: #333;
@@ -363,7 +367,6 @@ html{
     font-family: "Noto Serif Display";
     text-align: center;
     font-weight: bold;
-    display: block;
     padding-left: 20px;
     transition: color 0.5s ease;
   }
