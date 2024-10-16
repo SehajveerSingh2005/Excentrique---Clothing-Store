@@ -215,12 +215,14 @@ async function FilterProducts(filters) {
 
     // Apply category filter
     if (filters.category.length > 0) {
+        console.log(filters.category)
         productQuery = query(productQuery, where('category', 'in', filters.category));
     }
 
     // Apply color filter using array-contains
     if (filters.color.length > 0) {
-        const colorQueries = filters.color.map(color => where('colors', 'array-contains', color));
+        const colorQueries = filters.color.map(color =>where('colors', 'array-contains', color));
+        console.log(colorQueries)
         productQuery = query(productQuery, ...colorQueries);
     }
 

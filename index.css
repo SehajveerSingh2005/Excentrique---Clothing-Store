@@ -207,7 +207,7 @@ body{
 .menu-container{
   position: absolute;
   padding: 0;
-  top: 190px;
+  top: 188px;
   width: 100%;
   left: 0;
   background-color: #fff9ef4f;
@@ -215,12 +215,16 @@ body{
   backdrop-filter: blur(10px);
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
+.navbar2.opaque .menu-container{
+  top: 146px;
+}
+
 .navbar2 li:hover .menu-container{
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   top: 178px;
   opacity: 1;
   visibility: visible;
@@ -231,7 +235,7 @@ body{
 }
 
 .navbar2.opaque li:hover .menu-container{
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background-color: #fff9ef;
   top: 136px;
   opacity: 1;
@@ -363,6 +367,10 @@ body{
 
 .signedin-icons i.opaque{
   color: #fff9ef;
+}
+
+.loginbtn{
+  display: none;
 }
 
 .loginbtn a{
@@ -624,6 +632,106 @@ body{
     background-color: #333;
     color: #fff9ef;
   }
+
+  .marquee {
+    --marquee--colour: #fff9ef;
+    --marquee--repeat-count: 6;
+    --marquee--base-duration: 1s;
+    --marquee--repeat-size: calc(100% / var(--marquee--repeat-count));
+    --marquee--double-size: calc(var(--marquee--repeat-size) * 2);
+    --marquee--duration: calc(var(--marquee--base-duration) * var(--char-count, 20));
+    overflow: hidden;
+    width: 110%;
+    margin-left: -5%;
+    transform: rotate(-5deg);
+    mix-blend-mode: screen;
+    background: var(--marquee--colour);
+    color: #333;
+  }
+  
+  .marquee:nth-child(even) {
+    --marquee--direction: -1;
+    transform: rotate(5deg);
+    background: #000;
+    color: var(--marquee--colour);
+  }
+  
+  .marquee p {
+    transform: translateY(0.07em);
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    gap: 0.5em;
+    line-height: 1.1;
+    font-size: clamp(2.5rem, 12vw, 6.2rem);
+    font-family: "Bebas Neue", sans-serif;
+  }
+  
+  .marquee p::after {
+    content: "*";
+    transform: translateY(0.175em); /* visually centers with rest of text */
+  }
+  
+  .marquee p::before {
+    content: "";
+  }
+  
+  .marquee--inner {
+    width: max-content;
+    display: flex;
+    text-transform: uppercase;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .marquee--inner {
+      animation: marquee var(--marquee--duration) infinite linear,
+        reduce-marquee var(--marquee--duration) infinite linear paused;
+      animation-composition: add;
+    }
+  
+    .marquee--inner:hover {
+      animation-play-state: running;
+    }
+  }
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(
+        calc(
+          (-1 * var(--marquee--double-size)) -
+            (var(--marquee--double-size) * var(--marquee--direction, 1))
+        )
+      );
+    }
+    to {
+      transform: translateX(calc(var(--marquee--double-size) * -1));
+    }
+  }
+  
+  @keyframes reduce-marquee {
+    from {
+      transform: translateX(
+        calc(var(--marquee--repeat-size) * var(--marquee--direction, 1))
+      );
+    }
+    to {
+      transform: translateX(calc(var(--marquee--double-size) * -1));
+    }
+  }
+  
+  .marquees {
+    align-content: center;
+    height: 100%;
+    display: grid;
+    gap: 5vw;
+    overflow: hidden;
+    margin-bottom: 0px;
+    background-image: url(/banners/tshirt\ on\ railing\ landscape.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
 
 
   .footer{
