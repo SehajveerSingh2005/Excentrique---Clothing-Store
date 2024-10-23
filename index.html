@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100..900&family=Noto+Serif+Display:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
     
@@ -27,7 +28,7 @@
                 <ul class="personal">
                     <li class="signedin-icons"><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
                     <li class="signedin-icons"><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
-                    <li class="signedin-icons" id="profile-btn"><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                    <li class="signedin-icons profile-btn" id="profile-btn"><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
                     <li class="loginbtn" id="loginbtn"><a href="login.html">Login.</a></li>
                 </ul>
             </div>
@@ -129,6 +130,51 @@
         </div>
     </nav>
 
+    <div class="mobile-tabs-container">
+      <div class="tabs">Home</div>
+      <div class="tabs">Shop</div>
+      <div class="tabs">Account</div>
+    </div>
+    
+    <div id="mobile-menu" class="mobile-nav-menu">
+      <div class="nav-menu-icons">
+        
+      </div>
+      <div class="nav-menu-header">
+        <div class="nav-tabs">
+          <div class="men-header">Men</div>
+          <div class="women-header">Women</div>
+        </div>
+        <i class="fa fa-xmark" onclick="closeNav()"></i>
+      </div>
+        <div class="men-container">
+          <header>TOP</header>
+          <hr class="mob-line">
+          <ul class="menu-links">
+            <li><a href="/shop.html?category=oversized+t-shirt%2Cshirt%2Cshacket%2Clong+sleeves%2Csweatshirt%2Choodies">all</a></li>
+            <li><a href="/shop.html?category=oversized+t-shirt">oversized t-shirts</a></li>
+            <li><a href="/shop.html?category=oversized+t-shirt">shirts</a></li>
+            <li><a href="/shop.html?category=hoodie">hoodies</a></li>
+            <li><a href="/shop.html?category=shacket">shackets</a></li>
+            <li><a href="/shop.html?category=long+sleeves">long sleeves</a></li>
+            <li><a href="/shop.html?category=sweatshirt">sweatshirts</a></li>
+            <li><a href="/shop.html?category=co-ord+set">co-ord set</a></li>
+          </ul>
+          <header>BOTTOM</header>
+          <hr class="mob-line">
+          <ul class="menu-links">
+            <li><a href="/shop.html?category=cargos%2Cdenim+pants%2Ctrouser+pants%2Cjoggers%2Cshorts%2Cboxers">all</a></li>
+            <li><a href="/shop.html?category=cargo+pants">cargo pants</a></li>
+            <li><a href="/shop.html?category=denim+pants">denim pants</a></li>
+            <li><a href="/shop.html?category=trouser+pants">trouser pants</a></li>
+            <li><a href="/shop.html?category=joggers">joggers</a></li>
+            <li><a href="/shop.html?category=shorts">shorts</a></li>
+            <li><a href="/shop.html?category=boxers">boxers</a></li>
+          </ul>
+        </div>
+        <div class="women-container"></div>
+    </div>
+
     <div class="slideshow-container">
         <div class="mySlides fade" data-color="light">
           <a href="#banner1"><img src="/banners/billboard.png"></a>
@@ -161,39 +207,68 @@
 
     <div class="slideshow-container-mobile">
         <div class="mySlides fade">
-            <img src="/banners/mobile/9178920240701174714.jpg" style="width:100%">
+            <img src="/banners/tshirts on hanger portrait.png">
         </div>
           
         <div class="mySlides fade">
-            <img src="/banners/mobile/catbanmob-120240718160345.jpg" style="width:100%">
+            <img src="/banners/tshirt on railing portrait.png">
         </div>
           
-        <div class="mySlides fade">
+        <!-- <div class="mySlides fade">
             <img src="/banners/mobile/catbanmob-520240725121059.gif" style="width:100%">
-        </div>
+        </div> -->
 
         <div class="dot-container-mobile" style="text-align:center">
             <span class="dot"></span> 
             <span class="dot"></span> 
-            <span class="dot"></span> 
+            <!-- <span class="dot"></span>  -->
         </div>
     </div>
 
     <div class="new-drops-container">
 
       <span class="heading">NEW IN //</span>
-      <div class="new-drops-tiles-container">
-          <div class="drop-card" id="collection-card-1"><img src="/t-shirts/Dripped in money/1.png"></div>
-          <div class="drop-card" id="collection-card-2"><img src="/t-shirts/God's Drip/1.png"></div>
-          <div class="drop-card" id="collection-card-3"><img src="/t-shirts/Retrospection/3.png"></div>
-          <div class="drop-card" id="collection-card-4"><img src="/t-shirts/Serenity/1.png"></div>
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/ukgmUGqPcpnsB4KfCTQf"><img src="/t-shirts/Dripped in money/1.png" alt="Dripped in Money"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/0oXMZg5deJeU7vHbnXpk"><img src="/t-shirts/God's Drip/1.png" alt="God's Drip"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/73POun1kPveNImob2GAY"><img src="/t-shirts/Retrospection/3.png" alt="Retrospection"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/Nt6jAmJzn5xCFwHoGGdy"><img src="/t-shirts/Serenity/1.png" alt="Serenity"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/l3DOkNpuJ24TtsEQje7G"><img src="/t-shirts/Retro Beat- MTV/2.jpg" alt="Retro Beat MTV"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/REB0OCFyykPyQlY7bSVB"><img src="/shackets/Overshirt-Khaki/1.jpg" alt="Overshirt-Khaki"></a>
+          </div>
+          <div class="swiper-slide">
+            <a href="product-page.html?id=products/3m07JVBf8b0ZZbSMD77M"><img src="/shirts/Linen Shirt-Black/1.jpg" alt="Linen Shirt Black"></a>
+          </div>
+        </div>
       </div>
-
+    
     </div>
+    
 
     <span class="border"><img src="/misc/—Pngtree—horizontal line divider black decorative_15620536.png"></span>
 
-    <div class="best-sellers-container">
+    <div class="banner-container">
+      <p class="banner-topline">To find elegance, one must choose the path which is</p>
+      <span class="banner-focusline">LIT AF</span>
+      <a href="shop.html"><img src="/banners/lightbox glow.png"></a>
+      <p class="banner-bottomline"><span>Take</span>the next step when the lights stars blinking</p>
+
+    </div>
+
+
+    <!-- <div class="best-sellers-container">
       <span class="heading">THE BELOVED</span>
       <div class="new-drops-tiles-container">
           <div class="drop-card" id="collection-card-1"><img src="/t-shirts/Dripped in money/1.png"></div>
@@ -201,19 +276,9 @@
           <div class="drop-card" id="collection-card-3"><img src="/t-shirts/Retrospection/3.png"></div>
           <div class="drop-card" id="collection-card-4"><img src="/t-shirts/Serenity/1.png"></div>
       </div>
-    </div>
+    </div> -->
 
-    <span class="border"><img src="/misc/—Pngtree—horizontal line divider black decorative_15620536.png"></span>
-
-    <div class="collection-container">
-        <span class="heading">LATEST COLLECTIONS</span>
-        <div class="collection-tiles-container">
-            <div class="collection-card" id="collection-card-1"><img src="/t-shirts/1st mockup.png"><a href="#" class="collection-btn">MONSOON 24' COLLECTION</a></div>
-            <div class="collection-card" id="collection-card-2"><img src="/t-shirts/1st mockup.png"><a href="#" class="collection-btn">UTILITY CARGO COLLECTION</a></div>
-        </div>
-    </div>
-
-    <span class="border"><img src="/misc/—Pngtree—horizontal line divider black decorative_15620536.png"></span>
+    <!-- <span class="border"><img src="/misc/—Pngtree—horizontal line divider black decorative_15620536.png"></span> -->
 
     <div class='marquees'>
       <section class='marquee' style='--char-count: 28'>
@@ -265,18 +330,18 @@
         <div class="footer-container">
 
           <div class="footer-about-container">
-            <img src="Presentation 1.png">
-            <h3>About Excentrique</h3>
+            <img src="2.png">
+            <!-- <h3>About Excentrique</h3> -->
             <p>Excentrique is your destination for unique and fashionable clothing. We believe in quality, style, and sustainability.</p>
           </div>
           
           <div class="footer-links-container">
             <h3>Quick Links</h3>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Shop</a></li>
-              <li><a href="#">Contact</a></li>
-              <li><a href="#">About Us</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="shop.html">Shop</a></li>
+              <li><a href="my-account.html">My Account</a></li>
+              <li><a href="about.html">About Us</a></li>
             </ul>
           </div>
       
@@ -298,4 +363,27 @@
 <script type="module" src="index-firebase.js"></script>
 <script  src="index.js"></script>
 <script src="https://kit.fontawesome.com/1f882ef9bd.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  if(window.innerWidth > 768){
+    var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 4,
+    spaceBetween: 15,
+    pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+  }
+  else{
+    var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 2,
+    spaceBetween: 15,
+    pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
+  }
+</script>
 </html>

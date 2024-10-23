@@ -126,6 +126,27 @@ function showSlidesMobile() {
   setTimeout(showSlidesMobile, 5000);
 }
 
-showSlidesDesktop();
-showSlidesMobile();
+if(window.innerWidth > 768){
+  showSlidesDesktop();
+}
+else{
+  showSlidesMobile();
+}
 
+window.addEventListener('resize',() =>{
+  if(window.innerWidth > 768){
+    showSlidesDesktop();
+  }
+  else{
+    showSlidesMobile();
+  }
+})
+
+
+function openNav() {
+  document.getElementById("mobile-menu").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("mobile-menu").style.width = "0%";
+}

@@ -19,17 +19,47 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-onAuthStateChanged(auth,(user)=>{
-
-const profilebtn = document.getElementById('profile-btn')
-const loginbtn = document.getElementById('loginbtn');
-
-if (user) {
-    profilebtn.style.display = 'block';
-    loginbtn.style.display = 'none';
-}
-else{
-    profilebtn.style.display = 'none'
-    loginbtn.style.display = 'block';
-  }
-})
+onAuthStateChanged(auth,(user) => {
+    const profilebtn = document.getElementById('profile-btn');
+    const loginbtn = document.getElementById('loginbtn');
+  
+    if (user) {
+      // Check if the screen width is greater than 767px (not mobile)
+      if (window.innerWidth >= 768) {
+        // If it's desktop, keep it hidden
+        profilebtn.style.display = 'block';
+        loginbtn.style.display = 'none';
+      } else {
+        // For mobile, display the icon
+        profilebtn.style.display = 'none';
+      }
+    } else {
+      // If no user is logged in, hide the icon
+      profilebtn.style.display = 'none'
+      loginbtn.style.display = 'block';
+    }
+});
+  
+  // Handle window resizing
+window.addEventListener('resize', () => {
+    onAuthStateChanged(auth,(user) => {
+        const profilebtn = document.getElementById('profile-btn');
+        const loginbtn = document.getElementById('loginbtn');
+      
+        if (user) {
+          // Check if the screen width is greater than 767px (not mobile)
+          if (window.innerWidth >= 768) {
+            // If it's desktop, keep it hidden
+            profilebtn.style.display = 'block';
+            loginbtn.style.display = 'none';
+          } else {
+            // For mobile, display the icon
+            profilebtn.style.display = 'none';
+          }
+        } else {
+          // If no user is logged in, hide the icon
+          profilebtn.style.display = 'none'
+          loginbtn.style.display = 'block';
+        }
+    });
+});
