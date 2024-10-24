@@ -15,64 +15,168 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"> -->
 </head>
 <body>
-    
-    <div class="overlay" id="overlay"></div>
     <nav class="navbar">
         <div class="container">
-            <div class="hamburger"><i class="fa-solid fa-bars" id="hamburger"></i></div>
-            <div class="logo">
-                <a href="index.html"><img src="logo-cropped.png"></a>
-                <!-- <a href="index.html" class="noto-serif-display">Excentrique</a> -->
-            </div>
+             <div class="search">
+              <a href="#search"><i class="fa fa-magnifying-glass"></i></a>
+             </div>
+              <div class="logo">
+                <a href="index.html" class="logo-text" id="logo">Excentrique.</a>
+              </div>
             <div class="personal">
                 <ul class="personal">
-                    <li><a href="#search"><i class="fa fa-magnifying-glass"></i></a></li>
-                    <li><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
-                    <li><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
-                    <li><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                    <li class="signedin-icons"><a href="my-account.html"><i class="fa-regular fa-heart"></i></a></li>
+                    <li class="signedin-icons"><a href="cart.html"><i class="fa fa-cart-shopping"></i></a></li>
+                    <li class="signedin-icons profile-btn" id="profile-btn"><a href="my-account.html"><i class="fa-regular fa-user"></i></a></li>
+                    <li class="loginbtn" id="loginbtn"><a href="login.html">Login.</a></li>
                 </ul>
             </div>
         </div>
+
+        <hr class="line">
+
+        <div class="navbar2">
+          <ul>
+            <li>
+              <a href="shop.html">Men</a>
+              <div class="underline"></div>
+              <div class="menu-container">
+                <div class="content">
+                  <div class="row">
+                    <header>TOP</header>
+                    <ul class="menu-links">
+                      <li><a href="/shop.html?category=oversized+t-shirt%2Cshirt%2Cshacket%2Clong+sleeves%2Csweatshirt%2Choodies">all</a></li>
+                      <li><a href="/shop.html?category=oversized+t-shirt">oversized t-shirts</a></li>
+                      <li><a href="/shop.html?category=oversized+t-shirt">shirts</a></li>
+                      <li><a href="/shop.html?category=hoodie">hoodies</a></li>
+                      <li><a href="/shop.html?category=shacket">shackets</a></li>
+                      <li><a href="/shop.html?category=long+sleeves">long sleeves</a></li>
+                      <li><a href="/shop.html?category=sweatshirt">sweatshirts</a></li>
+                      <li><a href="/shop.html?category=co-ord+set">co-ord set</a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <header>BOTTOM</header>
+                    <ul class="menu-links">
+                      <li><a href="/shop.html?category=cargos%2Cdenim+pants%2Ctrouser+pants%2Cjoggers%2Cshorts%2Cboxers">all</a></li>
+                      <li><a href="/shop.html?category=cargo+pants">cargo pants</a></li>
+                      <li><a href="/shop.html?category=denim+pants">denim pants</a></li>
+                      <li><a href="/shop.html?category=trouser+pants">trouser pants</a></li>
+                      <li><a href="/shop.html?category=joggers">joggers</a></li>
+                      <li><a href="/shop.html?category=shorts">shorts</a></li>
+                      <li><a href="/shop.html?category=boxers">boxers</a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <img src="/banners/dipped in money banner.png">
+                    <p>New in: Dripped in Money</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="shop.html">Women</a>
+              <div class="underline"></div>
+              <div class="menu-container">
+                <div class="content">
+                  <div class="row">
+                    <header>TOP</header>
+                    <ul class="menu-links">
+                      <li><a href="shop.html">all</a></li>
+                      <li><a href="">oversized t-shirts</a></li>
+                      <li><a href="">shirts</a></li>
+                      <li><a href="">tops</a></li>
+                      <li><a href="">dresses</a></li>
+                      <li><a href="">hoodies</a></li>
+                      <li><a href="">shackets</a></li>
+                      <li><a href="">long sleeves</a></li>
+                      <li><a href="">sweatshirts</a></li>
+                      <li><a href="">co-ord set</a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <header>BOTTOM</header>
+                    <ul class="menu-links">
+                      <li><a href="shop.html">all</a></li>
+                      <li><a href="">cargo pants</a></li>
+                      <li><a href="">denim pants</a></li>
+                      <li><a href="">trouser pants</a></li>
+                      <li><a href="">joggers</a></li>
+                      <li><a href="">shorts</a></li>
+                      <li><a href="">boxers</a></li>
+                    </ul>
+                  </div>
+                  <div class="row">
+                    <img src="/banners/dipped in money banner.png">
+                    <p>New in: Dripped in Money</p>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="shop.html">New Drops</a>
+              <div class="underline"></div>
+            </li>
+            <li>
+              <a href="shop.html">Blogs</a>
+              <div class="underline"></div>
+            </li>
+            <li>
+              <a href="shop.html">About</a>
+              <div class="underline"></div>
+            </li>
+          </ul>
+        </div>
     </nav>
 
-    <div class="sidemenu">
-        <div class="close-menu"  id="close-menu"><i class="fa-solid fa-xmark"></i></div>
-        <div class="nav-links" id="nav-links">
-            <div class="cat-dropdown">
-                <div class="dropdown">
-                    <button class="dropbtn">MEN
-                        <!-- <i class="fa fa-caret-down"></i> -->
-                      </button>
-                      <div class="dropdown-content">
-                        <a href="#">T-shirts</a>
-                        <a href="#">Shirts</a>
-                        <a href="#">Cargo Pants</a>
-                      </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">WOMEN
-                        <!-- <i class="fa fa-caret-down"></i> -->
-                      </button>
-                      <div class="dropdown-content">
-                        <a href="#">T-shirts</a>
-                        <a href="#">Tops</a>
-                        <a href="#">Cargo Pants</a>
-                      </div>
-                </div>
-            </div>
-            <ul class="links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#shop">Shop</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#cart">Cart</a></li>
-            </ul>>
+    <div class="mobile-tabs-container">
+      <div class="tabs">Home</div>
+      <div class="tabs">Shop</div>
+      <div class="tabs">Account</div>
+    </div>
+    
+    <div id="mobile-menu" class="mobile-nav-menu">
+      <div class="nav-menu-icons">
+        
+      </div>
+      <div class="nav-menu-header">
+        <div class="nav-tabs">
+          <div class="men-header">Men</div>
+          <div class="women-header">Women</div>
         </div>
+        <i class="fa fa-xmark" onclick="closeNav()"></i>
+      </div>
+        <div class="men-container">
+          <header>TOP</header>
+          <hr class="mob-line">
+          <ul class="menu-links">
+            <li><a href="/shop.html?category=oversized+t-shirt%2Cshirt%2Cshacket%2Clong+sleeves%2Csweatshirt%2Choodies">all</a></li>
+            <li><a href="/shop.html?category=oversized+t-shirt">oversized t-shirts</a></li>
+            <li><a href="/shop.html?category=oversized+t-shirt">shirts</a></li>
+            <li><a href="/shop.html?category=hoodie">hoodies</a></li>
+            <li><a href="/shop.html?category=shacket">shackets</a></li>
+            <li><a href="/shop.html?category=long+sleeves">long sleeves</a></li>
+            <li><a href="/shop.html?category=sweatshirt">sweatshirts</a></li>
+            <li><a href="/shop.html?category=co-ord+set">co-ord set</a></li>
+          </ul>
+          <header>BOTTOM</header>
+          <hr class="mob-line">
+          <ul class="menu-links">
+            <li><a href="/shop.html?category=cargos%2Cdenim+pants%2Ctrouser+pants%2Cjoggers%2Cshorts%2Cboxers">all</a></li>
+            <li><a href="/shop.html?category=cargo+pants">cargo pants</a></li>
+            <li><a href="/shop.html?category=denim+pants">denim pants</a></li>
+            <li><a href="/shop.html?category=trouser+pants">trouser pants</a></li>
+            <li><a href="/shop.html?category=joggers">joggers</a></li>
+            <li><a href="/shop.html?category=shorts">shorts</a></li>
+            <li><a href="/shop.html?category=boxers">boxers</a></li>
+          </ul>
+        </div>
+        <div class="women-container"></div>
     </div>
 
-    <div class="title">
-        <span class="heading">REGISTER</span>
-        <hr class="line">
+    <div class="title-signup">
+        <span class="heading-signup">REGISTER</span>
+        <hr class="line-signup">
     </div>
 
     <div class="main-container">
